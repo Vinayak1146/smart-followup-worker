@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+*.log
+__pycache__/
+*.pyc
+
+# Local SQLite database — recreate with `python manage.py migrate`.
+db.sqlite3
+db.sqlite3-journal
+
+# LangGraph durable checkpoints — runtime state, reproducible from a fresh run.
+agent_checkpoints.sqlite*
+*checkpoints.sqlite*
+*.sqlite-wal
+*.sqlite-shm

@@ -1,0 +1,10 @@
+Django>=5.0,<5.2
+djangorestframework>=3.15,<4.0
+django-cors-headers>=4.4.0
+python-dotenv>=1.0.1
+requests>=2.32.0
+
+# Orchestration harness: the worker runs on a real LangGraph StateGraph with a
+# durable SqliteSaver checkpointer (approval interrupts + resume after restart).
+langgraph>=1.0,<2.0
+langgraph-checkpoint-sqlite>=3.0,<4.0

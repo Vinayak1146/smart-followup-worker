@@ -1,0 +1,113 @@
+{
+  "note": "Synthetic data only \u2014 no real customer records are used.",
+  "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
+  "policy": {
+    "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
+    "eligibility": {
+      "min_inactive_days": 30,
+      "max_inactive_days": 180,
+      "requires_marketing_consent": true
+    },
+    "approval": {
+      "max_autonomous_discount_pct": 0,
+      "max_proposable_discount_pct": 25,
+      "rule": "Any discount at or below the autonomous limit may be granted by the worker; anything above it must be approved by the owner before the message is sent."
+    },
+    "guardrails": [
+      "One follow-up per customer per cooldown window.",
+      "No outreach without marketing consent.",
+      "The messaging and reorder tools refuse to run when approval is required and missing."
+    ]
+  },
+  "tools": [
+    "retrieve_customer_history",
+    "send_followup",
+    "create_reorder_request"
+  ],
+  "dataset": [
+    {
+      "customer": "Priya Nair",
+      "customer_id": 145,
+      "note": "Eligible with no incentive justified \u2014 the autonomous success case."
+    },
+    {
+      "customer": "Meera Joshi",
+      "customer_id": 146,
+      "note": "Eligible \u2014 the subject of the customer-rejection scenario."
+    },
+    {
+      "customer": "Rahul Verma",
+      "customer_id": 147,
+      "note": "Repeat buyer inactive 75 days \u2014 the analysis justifies 15% off, which crosses the autonomous limit and needs the owner."
+    },
+    {
+      "customer": "Vikram Mehta",
+      "customer_id": 148,
+      "note": "Hindi speaker with a stored preference \u2014 shows memory recall and language-aware drafting under an approval."
+    },
+    {
+      "customer": "Nisha Kulkarni",
+      "customer_id": 149,
+      "note": "Declined an offer 10 days ago \u2014 the cooldown rule must refuse to re-contact."
+    },
+    {
+      "customer": "Arjun Singh",
+      "customer_id": 150,
+      "note": "Ordered 12 days ago \u2014 too recent to nudge."
+    },
+    {
+      "customer": "Fatima Sheikh",
+      "customer_id": 151,
+      "note": "Never consented to marketing \u2014 outreach is not permitted."
+    },
+    {
+      "customer": "Deepak Rao",
+      "customer_id": 152,
+      "note": "Inactive 240 days \u2014 beyond the window where one message is honest."
+    },
+    {
+      "customer": "Sneha Iyer",
+      "customer_id": 153,
+      "note": "Opted out of outreach \u2014 blocked at policy level."
+    }
+  ],
+  "dashboard": {
+    "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
+    "customers": {
+      "total": 9,
+      "opted_out": 1,
+      "with_consent": 8
+    },
+    "purchases": {
+      "count": 13,
+      "revenue": "20615"
+    },
+    "follow_ups": {
+      "total": 1,
+      "sent": 0,
+      "awaiting_approval": 0,
+      "declined": 1,
+      "rejected_by_owner": 0,
+      "converted": 0,
+      "win_back_rate_pct": 0.0
+    },
+    "runs": {
+      "total": 0,
+      "completed": 0,
+      "awaiting_approval": 0,
+      "failed": 0,
+      "rejected": 0,
+      "autonomous": 0
+    },
+    "efficiency": {
+      "total_tokens": 0,
+      "total_cost_usd": "0",
+      "steps": 0
+    },
+    "approvals": {
+      "pending": 0,
+      "approved": 0,
+      "rejected": 0
+    }
+  }
+}

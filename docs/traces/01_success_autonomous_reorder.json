@@ -1,0 +1,619 @@
+{
+  "scenario": "Successful reorder, entirely autonomous",
+  "expectation": "The worker finds an eligible customer, proposes no discount (so no approval is needed), sends one message, and completes. The conversion is written by the recorded purchase, not by the worker.",
+  "step_1_worker_run": {
+    "run_id": "d7dbab49-1c84-41c2-bde9-037bdf352453",
+    "mode": "FOLLOW_UP",
+    "customer_id": 154,
+    "customer_name": "Priya Nair",
+    "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
+    "status": "COMPLETED",
+    "next_node": "",
+    "resume_node": "",
+    "outcome_summary": "Follow-up sent to Priya Nair offering Muslin Cotton Kurta. Awaiting the customer's response.",
+    "resolved_autonomously": true,
+    "resume_count": 0,
+    "created_at": "2026-11-18T12:29:33.126409+00:00",
+    "finished_at": "2026-11-18T12:29:33.420627+00:00",
+    "duration_ms": 294,
+    "step_count": 7,
+    "state": {
+      "mode": "FOLLOW_UP",
+      "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
+      "should_follow_up": true,
+      "decision_reason": "Inactive 45 days with 1 previous order(s); a plain nudge should suffice.",
+      "discount_pct": 0,
+      "urgency": "normal",
+      "tone": "warm and personal",
+      "needs_approval": false,
+      "outcome": "FOLLOW_UP_SENT",
+      "outcome_summary": "Follow-up sent to Priya Nair offering Muslin Cotton Kurta. Awaiting the customer's response.",
+      "findings": [
+        "Inactive 45 days with 1 previous order(s), lifetime value 1299.",
+        "Preferred channel: WHATSAPP; language: en.",
+        "Suggested product to offer back: Muslin Cotton Kurta.",
+        "Recalled 3 memory note(s) from earlier runs."
+      ],
+      "customer": {
+        "id": 154,
+        "name": "Priya Nair",
+        "language": "en",
+        "city": "Mumbai",
+        "preferred_channel": "WHATSAPP",
+        "marketing_consent": true,
+        "status": "ACTIVE",
+        "days_since_last_order": 45
+      },
+      "eligibility": {
+        "eligible": true,
+        "reason": "Inactive for 45 days with consent on record."
+      },
+      "memory": [
+        {
+          "scope": "BUSINESS",
+          "key": "offer_policy",
+          "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+          "at": "2026-11-18T12:29:33.111309+00:00"
+        },
+        {
+          "scope": "BUSINESS",
+          "key": "channel_note",
+          "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
+          "at": "2026-11-18T12:29:33.111309+00:00"
+        },
+        {
+          "scope": "BUSINESS",
+          "key": "tone_guide",
+          "value": "Keep win-back messages warm and specific; never use urgency pressure.",
+          "at": "2026-11-18T12:29:33.110311+00:00"
+        }
+      ],
+      "message": "Hi Priya, hope you are doing well. Your last order (Muslin Cotton Kurta) is something we can get ready for you again. Would you like to reorder?"
+    },
+    "steps": [
+      {
+        "id": 121,
+        "index": 0,
+        "node": "load_context",
+        "status": "OK",
+        "summary": "Eligible: Inactive for 45 days with consent on record.",
+        "created_at": "2026-11-18T12:29:33.158267+00:00",
+        "tool": {
+          "name": "retrieve_customer_history",
+          "status": "SUCCESS",
+          "attempts": 1,
+          "authorized": true,
+          "error": "",
+          "result": {
+            "customer": {
+              "id": 154,
+              "name": "Priya Nair",
+              "language": "en",
+              "city": "Mumbai",
+              "preferred_channel": "WHATSAPP",
+              "marketing_consent": true,
+              "status": "ACTIVE",
+              "days_since_last_order": 45
+            },
+            "order_count": 1,
+            "lifetime_value": "1299",
+            "purchases": [
+              {
+                "product_name": "Muslin Cotton Kurta",
+                "category": "Apparel",
+                "quantity": 1,
+                "amount": "1299.00",
+                "purchased_at": "2026-10-04T12:29:33.093250+00:00"
+              }
+            ],
+            "conversation": [],
+            "memory": [
+              {
+                "scope": "BUSINESS",
+                "key": "offer_policy",
+                "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+                "at": "2026-11-18T12:29:33.111309+00:00"
+              },
+              {
+                "scope": "BUSINESS",
+                "key": "channel_note",
+                "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
+                "at": "2026-11-18T12:29:33.111309+00:00"
+              },
+              {
+                "scope": "BUSINESS",
+                "key": "tone_guide",
+                "value": "Keep win-back messages warm and specific; never use urgency pressure.",
+                "at": "2026-11-18T12:29:33.110311+00:00"
+              }
+            ],
+            "eligibility": {
+              "eligible": true,
+              "reason": "Inactive for 45 days with consent on record."
+            },
+            "suggested_product": "Muslin Cotton Kurta"
+          }
+        },
+        "model": null,
+        "output": {
+          "eligibility": {
+            "eligible": true,
+            "reason": "Inactive for 45 days with consent on record."
+          },
+          "order_count": 1
+        },
+        "error": ""
+      },
+      {
+        "id": 122,
+        "index": 1,
+        "node": "decide",
+        "status": "OK",
+        "summary": "Proposed a 0% incentive. No owner approval needed: the offer is within the autonomous limit.",
+        "created_at": "2026-11-18T12:29:33.202110+00:00",
+        "tool": null,
+        "model": {
+          "used": "rule-engine-v1",
+          "strategy": "deterministic",
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "estimated_cost": "0E-8",
+          "latency_ms": 0
+        },
+        "output": {
+          "decision": {
+            "should_follow_up": true,
+            "reason": "Inactive 45 days with 1 previous order(s); a plain nudge should suffice.",
+            "discount_pct": 0,
+            "urgency": "normal",
+            "tone": "warm and personal"
+          },
+          "discount_pct_applied": 0,
+          "policy": "No owner approval needed: the offer is within the autonomous limit.",
+          "needs_approval": false
+        },
+        "error": ""
+      },
+      {
+        "id": 123,
+        "index": 2,
+        "node": "draft_message",
+        "status": "OK",
+        "summary": "Drafted a 144-character message.",
+        "created_at": "2026-11-18T12:29:33.232592+00:00",
+        "tool": null,
+        "model": {
+          "used": "rule-engine-v1",
+          "strategy": "deterministic",
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "estimated_cost": "0E-8",
+          "latency_ms": 0
+        },
+        "output": {
+          "message": "Hi Priya, hope you are doing well. Your last order (Muslin Cotton Kurta) is something we can get ready for you again. Would you like to reorder?"
+        },
+        "error": ""
+      },
+      {
+        "id": 124,
+        "index": 3,
+        "node": "send_followup",
+        "status": "OK",
+        "summary": "Sent via WHATSAPP (message sim-8d442605e3f6).",
+        "created_at": "2026-11-18T12:29:33.290594+00:00",
+        "tool": {
+          "name": "send_followup",
+          "status": "SUCCESS",
+          "attempts": 1,
+          "authorized": true,
+          "error": "",
+          "result": {
+            "provider": "simulated",
+            "message_id": "sim-8d442605e3f6",
+            "to": "+919810010001",
+            "channel": "WHATSAPP",
+            "status": "DELIVERED"
+          }
+        },
+        "model": null,
+        "output": {},
+        "error": ""
+      },
+      {
+        "id": 125,
+        "index": 4,
+        "node": "create_reorder",
+        "status": "OK",
+        "summary": "Prepared reorder request ro-154-1795004973.",
+        "created_at": "2026-11-18T12:29:33.343697+00:00",
+        "tool": {
+          "name": "create_reorder_request",
+          "status": "SUCCESS",
+          "attempts": 1,
+          "authorized": true,
+          "error": "",
+          "result": {
+            "reorder_request_id": "ro-154-1795004973",
+            "product_name": "Muslin Cotton Kurta",
+            "discount_pct": 0,
+            "channel": "WHATSAPP",
+            "status": "PREPARED"
+          }
+        },
+        "model": null,
+        "output": {},
+        "error": ""
+      },
+      {
+        "id": 126,
+        "index": 5,
+        "node": "verify_outcome",
+        "status": "OK",
+        "summary": "All checks passed: the message was recorded and the reorder is prepared.",
+        "created_at": "2026-11-18T12:29:33.383821+00:00",
+        "tool": null,
+        "model": null,
+        "output": {
+          "checks": {
+            "follow_up_sent": true,
+            "message_recorded": true,
+            "reorder_prepared": true
+          },
+          "passed": true
+        },
+        "error": ""
+      },
+      {
+        "id": 127,
+        "index": 6,
+        "node": "finalize",
+        "status": "OK",
+        "summary": "COMPLETED: Follow-up sent to Priya Nair offering Muslin Cotton Kurta. Awaiting the customer's response.",
+        "created_at": "2026-11-18T12:29:33.442979+00:00",
+        "tool": null,
+        "model": null,
+        "output": {
+          "status": "COMPLETED",
+          "resolved_autonomously": true,
+          "outcome": "FOLLOW_UP_SENT",
+          "errors": []
+        },
+        "error": ""
+      }
+    ],
+    "approval": null,
+    "tokens": 0,
+    "cost_usd": "0E-8"
+  },
+  "step_2_recorded_order": {
+    "purchase": {
+      "id": 238,
+      "product_name": "Muslin Cotton Kurta",
+      "category": "Apparel",
+      "quantity": 1,
+      "amount": "1299.0",
+      "purchased_at": "2026-11-18T12:29:33.493289+00:00"
+    },
+    "converted_follow_up_id": 33,
+    "customer": {
+      "id": 154,
+      "name": "Priya Nair",
+      "phone": "+919810010001",
+      "city": "Mumbai",
+      "language": "en",
+      "preferred_channel": "WHATSAPP",
+      "marketing_consent": true,
+      "status": "REACTIVATED",
+      "days_since_last_order": 0,
+      "order_count": 2,
+      "lifetime_value": "2598",
+      "last_order_at": "2026-11-18T12:29:33.493289+00:00",
+      "last_product": "Muslin Cotton Kurta"
+    }
+  },
+  "step_3_follow_up_state": {
+    "id": 33,
+    "status": "CONVERTED",
+    "sent_at": "2026-11-18T12:29:33.279059+00:00",
+    "outcome_note": "Converted: Muslin Cotton Kurta ordered 2026-11-18.",
+    "message": "Hi Priya, hope you are doing well. Your last order (Muslin Cotton Kurta) is something we can get ready for you again. Would you like to reorder?"
+  },
+  "checks": {
+    "run_completed": true,
+    "resolved_autonomously": true,
+    "no_approval_recorded": true,
+    "exactly_one_message_sent": true,
+    "converted_after_purchase": true,
+    "customer_status": "REACTIVATED"
+  },
+  "final_trace": {
+    "run_id": "d7dbab49-1c84-41c2-bde9-037bdf352453",
+    "mode": "FOLLOW_UP",
+    "customer_id": 154,
+    "customer_name": "Priya Nair",
+    "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
+    "status": "COMPLETED",
+    "next_node": "",
+    "resume_node": "",
+    "outcome_summary": "Follow-up sent to Priya Nair offering Muslin Cotton Kurta. Awaiting the customer's response.",
+    "resolved_autonomously": true,
+    "resume_count": 0,
+    "created_at": "2026-11-18T12:29:33.126409+00:00",
+    "finished_at": "2026-11-18T12:29:33.420627+00:00",
+    "duration_ms": 294,
+    "step_count": 7,
+    "state": {
+      "mode": "FOLLOW_UP",
+      "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
+      "should_follow_up": true,
+      "decision_reason": "Inactive 45 days with 1 previous order(s); a plain nudge should suffice.",
+      "discount_pct": 0,
+      "urgency": "normal",
+      "tone": "warm and personal",
+      "needs_approval": false,
+      "outcome": "FOLLOW_UP_SENT",
+      "outcome_summary": "Follow-up sent to Priya Nair offering Muslin Cotton Kurta. Awaiting the customer's response.",
+      "findings": [
+        "Inactive 45 days with 1 previous order(s), lifetime value 1299.",
+        "Preferred channel: WHATSAPP; language: en.",
+        "Suggested product to offer back: Muslin Cotton Kurta.",
+        "Recalled 3 memory note(s) from earlier runs."
+      ],
+      "customer": {
+        "id": 154,
+        "name": "Priya Nair",
+        "language": "en",
+        "city": "Mumbai",
+        "preferred_channel": "WHATSAPP",
+        "marketing_consent": true,
+        "status": "ACTIVE",
+        "days_since_last_order": 45
+      },
+      "eligibility": {
+        "eligible": true,
+        "reason": "Inactive for 45 days with consent on record."
+      },
+      "memory": [
+        {
+          "scope": "BUSINESS",
+          "key": "offer_policy",
+          "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+          "at": "2026-11-18T12:29:33.111309+00:00"
+        },
+        {
+          "scope": "BUSINESS",
+          "key": "channel_note",
+          "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
+          "at": "2026-11-18T12:29:33.111309+00:00"
+        },
+        {
+          "scope": "BUSINESS",
+          "key": "tone_guide",
+          "value": "Keep win-back messages warm and specific; never use urgency pressure.",
+          "at": "2026-11-18T12:29:33.110311+00:00"
+        }
+      ],
+      "message": "Hi Priya, hope you are doing well. Your last order (Muslin Cotton Kurta) is something we can get ready for you again. Would you like to reorder?"
+    },
+    "steps": [
+      {
+        "id": 121,
+        "index": 0,
+        "node": "load_context",
+        "status": "OK",
+        "summary": "Eligible: Inactive for 45 days with consent on record.",
+        "created_at": "2026-11-18T12:29:33.158267+00:00",
+        "tool": {
+          "name": "retrieve_customer_history",
+          "status": "SUCCESS",
+          "attempts": 1,
+          "authorized": true,
+          "error": "",
+          "result": {
+            "customer": {
+              "id": 154,
+              "name": "Priya Nair",
+              "language": "en",
+              "city": "Mumbai",
+              "preferred_channel": "WHATSAPP",
+              "marketing_consent": true,
+              "status": "ACTIVE",
+              "days_since_last_order": 45
+            },
+            "order_count": 1,
+            "lifetime_value": "1299",
+            "purchases": [
+              {
+                "product_name": "Muslin Cotton Kurta",
+                "category": "Apparel",
+                "quantity": 1,
+                "amount": "1299.00",
+                "purchased_at": "2026-10-04T12:29:33.093250+00:00"
+              }
+            ],
+            "conversation": [],
+            "memory": [
+              {
+                "scope": "BUSINESS",
+                "key": "offer_policy",
+                "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+                "at": "2026-11-18T12:29:33.111309+00:00"
+              },
+              {
+                "scope": "BUSINESS",
+                "key": "channel_note",
+                "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
+                "at": "2026-11-18T12:29:33.111309+00:00"
+              },
+              {
+                "scope": "BUSINESS",
+                "key": "tone_guide",
+                "value": "Keep win-back messages warm and specific; never use urgency pressure.",
+                "at": "2026-11-18T12:29:33.110311+00:00"
+              }
+            ],
+            "eligibility": {
+              "eligible": true,
+              "reason": "Inactive for 45 days with consent on record."
+            },
+            "suggested_product": "Muslin Cotton Kurta"
+          }
+        },
+        "model": null,
+        "output": {
+          "eligibility": {
+            "eligible": true,
+            "reason": "Inactive for 45 days with consent on record."
+          },
+          "order_count": 1
+        },
+        "error": ""
+      },
+      {
+        "id": 122,
+        "index": 1,
+        "node": "decide",
+        "status": "OK",
+        "summary": "Proposed a 0% incentive. No owner approval needed: the offer is within the autonomous limit.",
+        "created_at": "2026-11-18T12:29:33.202110+00:00",
+        "tool": null,
+        "model": {
+          "used": "rule-engine-v1",
+          "strategy": "deterministic",
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "estimated_cost": "0E-8",
+          "latency_ms": 0
+        },
+        "output": {
+          "decision": {
+            "should_follow_up": true,
+            "reason": "Inactive 45 days with 1 previous order(s); a plain nudge should suffice.",
+            "discount_pct": 0,
+            "urgency": "normal",
+            "tone": "warm and personal"
+          },
+          "discount_pct_applied": 0,
+          "policy": "No owner approval needed: the offer is within the autonomous limit.",
+          "needs_approval": false
+        },
+        "error": ""
+      },
+      {
+        "id": 123,
+        "index": 2,
+        "node": "draft_message",
+        "status": "OK",
+        "summary": "Drafted a 144-character message.",
+        "created_at": "2026-11-18T12:29:33.232592+00:00",
+        "tool": null,
+        "model": {
+          "used": "rule-engine-v1",
+          "strategy": "deterministic",
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0,
+          "estimated_cost": "0E-8",
+          "latency_ms": 0
+        },
+        "output": {
+          "message": "Hi Priya, hope you are doing well. Your last order (Muslin Cotton Kurta) is something we can get ready for you again. Would you like to reorder?"
+        },
+        "error": ""
+      },
+      {
+        "id": 124,
+        "index": 3,
+        "node": "send_followup",
+        "status": "OK",
+        "summary": "Sent via WHATSAPP (message sim-8d442605e3f6).",
+        "created_at": "2026-11-18T12:29:33.290594+00:00",
+        "tool": {
+          "name": "send_followup",
+          "status": "SUCCESS",
+          "attempts": 1,
+          "authorized": true,
+          "error": "",
+          "result": {
+            "provider": "simulated",
+            "message_id": "sim-8d442605e3f6",
+            "to": "+919810010001",
+            "channel": "WHATSAPP",
+            "status": "DELIVERED"
+          }
+        },
+        "model": null,
+        "output": {},
+        "error": ""
+      },
+      {
+        "id": 125,
+        "index": 4,
+        "node": "create_reorder",
+        "status": "OK",
+        "summary": "Prepared reorder request ro-154-1795004973.",
+        "created_at": "2026-11-18T12:29:33.343697+00:00",
+        "tool": {
+          "name": "create_reorder_request",
+          "status": "SUCCESS",
+          "attempts": 1,
+          "authorized": true,
+          "error": "",
+          "result": {
+            "reorder_request_id": "ro-154-1795004973",
+            "product_name": "Muslin Cotton Kurta",
+            "discount_pct": 0,
+            "channel": "WHATSAPP",
+            "status": "PREPARED"
+          }
+        },
+        "model": null,
+        "output": {},
+        "error": ""
+      },
+      {
+        "id": 126,
+        "index": 5,
+        "node": "verify_outcome",
+        "status": "OK",
+        "summary": "All checks passed: the message was recorded and the reorder is prepared.",
+        "created_at": "2026-11-18T12:29:33.383821+00:00",
+        "tool": null,
+        "model": null,
+        "output": {
+          "checks": {
+            "follow_up_sent": true,
+            "message_recorded": true,
+            "reorder_prepared": true
+          },
+          "passed": true
+        },
+        "error": ""
+      },
+      {
+        "id": 127,
+        "index": 6,
+        "node": "finalize",
+        "status": "OK",
+        "summary": "COMPLETED: Follow-up sent to Priya Nair offering Muslin Cotton Kurta. Awaiting the customer's response.",
+        "created_at": "2026-11-18T12:29:33.442979+00:00",
+        "tool": null,
+        "model": null,
+        "output": {
+          "status": "COMPLETED",
+          "resolved_autonomously": true,
+          "outcome": "FOLLOW_UP_SENT",
+          "errors": []
+        },
+        "error": ""
+      }
+    ],
+    "approval": null,
+    "tokens": 0,
+    "cost_usd": "0E-8"
+  }
+}
