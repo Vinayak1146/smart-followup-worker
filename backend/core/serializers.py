@@ -204,8 +204,9 @@ def run_detail(run):
 def dashboard():
     """The numbers the owner actually cares about, computed from rows.
 
-    Nothing here is self-reported by the worker: conversions come from real
-    ``Purchase`` rows, and cost comes from recorded token usage.
+    Nothing here is self-reported by the worker: the win-back rate counts
+    follow-ups the customer replied positively to, and cost comes from recorded
+    token usage.
     """
     sent = FollowUp.objects.filter(sent_at__isnull=False)
     converted = FollowUp.objects.filter(status=FollowUp.Status.CONVERTED)

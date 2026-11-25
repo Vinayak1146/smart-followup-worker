@@ -11,7 +11,6 @@ urlpatterns = [
     path('customers/<int:pk>/', views.customer_detail, name='customer-detail'),
     path('customers/<int:pk>/follow-up/', views.start_follow_up, name='customer-follow-up'),
     path('customers/<int:pk>/reply/', views.customer_reply, name='customer-reply'),
-    path('customers/<int:pk>/purchase/', views.record_purchase, name='customer-purchase'),
 
     path('runs/', views.run_list, name='run-list'),
     path('runs/<uuid:run_id>/', views.run_detail, name='run-detail'),

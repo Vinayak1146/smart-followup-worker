@@ -28,10 +28,16 @@ The worker is handed one customer and decides, end to end, whether and how to br
 
 **Goal, metric and Definition of Done**
 
-- **Business goal** — one relevant, consented follow-up per lapsed customer, leading to a repeat purchase.
-- **Success metric** — `win_back_rate_pct` = converted follow-ups ÷ follow-ups sent. A conversion is only ever written by a real `Purchase` row, never by the worker.
-- **Autonomy metric** — `resolved_autonomously` is true only when the run completed **and** no approval was involved.
-- **Definition of Done** — `verify_outcome` checks three things against the database: the follow-up is marked sent, the message is recorded as an interaction, and the reorder is prepared. Anything else ends `FAILED` (with a checkpoint) or `REJECTED` (a human said no).
+* *Business goal* — one relevant, consented follow-up per lapsed customer, leading to a
+  repeat purchase.
+* *Success metric* — `win_back_rate_pct` = follow-ups the customer replied positively
+  to ÷ follow-ups sent. The win signal comes from the customer's reply, never from the
+  worker; the order itself happens on the shop site, so the worker never records one.
+* *Autonomy metric* — `resolved_autonomously` is true only when the run completed **and**
+  no approval was involved.
+* *Definition of Done* — `verify_outcome` checks three things against the database: the
+  follow-up is marked sent, the message is recorded as an interaction, and the reorder is
+  prepared. Anything else ends `FAILED` (with a checkpoint) or `REJECTED` (a human said no).
 
 ---
 

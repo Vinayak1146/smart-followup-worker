@@ -56,7 +56,7 @@ export default function Dashboard({ onChanged, onOpenCustomer }) {
               <Metric
                 label="Win-back rate"
                 value={`${metrics.follow_ups.win_back_rate_pct}%`}
-                hint={`${metrics.follow_ups.converted} converted of ${metrics.follow_ups.sent} sent`}
+                hint={`${metrics.follow_ups.converted} replied positively of ${metrics.follow_ups.sent} sent`}
                 tone={metrics.follow_ups.converted > 0 ? 'ok' : undefined}
               />
               <Metric

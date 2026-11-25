@@ -3,8 +3,9 @@
 The first block is the evaluation report made executable: one success scenario,
 two adverse scenarios, and the two mechanisms the brief calls out (approval and
 recovery after a restart). The second block covers the edges that are easy to get
-wrong — the permission guard, the cooldown rule, and the dishonest-conversion
-trap — because those are the failure modes a reviewer would look for.
+wrong — the permission guard, the cooldown rule, and the win-back signal that must
+come from the customer, not from the worker — because those are the failure modes
+a reviewer would look for.
 
 Run with ``python manage.py test core``.
 """
@@ -214,7 +215,7 @@ class Guardrails(TestCase):
                 customer.follow_ups.filter(status=FollowUp.Status.SENT).exists(), name
             )
 
-    def test_a_follow_up_is_never_self_reported_as_converted(self):
+    def test_a_sent_follow_up_is_not_converted_until_the_customer_replies(self):
         priya = customer_by_name('Priya Nair')
         run = workflows.start_follow_up_run(priya)
         self.assertEqual(run.status, WorkerRun.Status.COMPLETED)
@@ -323,25 +324,23 @@ class ApiContract(TestCase):
         self.assertEqual(detail['approval']['status'], 'APPROVED')
         self.assertEqual(detail['approval']['decided_by'], 'Ananya')
 
-    def test_conversion_requires_a_real_purchase(self):
+    def test_a_positive_reply_is_what_marks_the_win_back(self):
         priya = customer_by_name('Priya Nair')
         self.client.post(f'/api/customers/{priya.id}/follow-up/')
 
         follow_up = priya.follow_ups.latest('created_at')
         self.assertEqual(follow_up.status, FollowUp.Status.SENT)
 
-        recorded = self.client.post(
-            f'/api/customers/{priya.id}/purchase/',
-            {'product_name': 'Muslin Cotton Kurta', 'amount': 1299, 'quantity': 1},
+        replied = self.client.post(
+            f'/api/customers/{priya.id}/reply/',
+            {'reply': 'Yes please, send it over'},
             format='json',
         )
-        self.assertEqual(recorded.status_code, 201)
-        self.assertEqual(recorded.json()['converted_follow_up_id'], follow_up.id)
+        self.assertEqual(replied.status_code, 201)
 
         follow_up.refresh_from_db()
-        priya.refresh_from_db()
         self.assertEqual(follow_up.status, FollowUp.Status.CONVERTED)
-        self.assertEqual(priya.status, Customer.Status.REACTIVATED)
+        self.assertIsNotNone(follow_up.responded_at)
 
         dashboard = self.client.get('/api/dashboard/').json()
         self.assertEqual(dashboard['follow_ups']['converted'], 1)

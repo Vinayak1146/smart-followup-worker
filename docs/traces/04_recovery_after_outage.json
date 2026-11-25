@@ -7,9 +7,9 @@
     "tool_max_attempts": 3
   },
   "step_2_failed_run": {
-    "run_id": "d96b3cac-acb6-489d-9b48-6bd7a21f19ca",
+    "run_id": "b9a09db6-bee4-4acc-a7db-11d5e833c84a",
     "mode": "FOLLOW_UP",
-    "customer_id": 181,
+    "customer_id": 558,
     "customer_name": "Priya Nair",
     "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
     "status": "FAILED",
@@ -18,8 +18,8 @@
     "outcome_summary": "Failed at send_followup: Simulated provider unavailable (outage injected, 0 failure(s) left). (gave up after 3 attempts). Checkpoint saved \u2014 a retry resumes from this step instead of repeating the run.",
     "resolved_autonomously": false,
     "resume_count": 0,
-    "created_at": "2026-11-18T12:29:34.964305+00:00",
-    "finished_at": "2026-11-18T12:29:35.152133+00:00",
+    "created_at": "2026-11-25T16:54:49.169347+00:00",
+    "finished_at": "2026-11-25T16:54:49.461313+00:00",
     "duration_ms": 0,
     "step_count": 5,
     "state": {
@@ -43,7 +43,7 @@
         "Recalled 3 memory note(s) from earlier runs."
       ],
       "customer": {
-        "id": 181,
+        "id": 558,
         "name": "Priya Nair",
         "language": "en",
         "city": "Mumbai",
@@ -61,31 +61,31 @@
           "scope": "BUSINESS",
           "key": "channel_note",
           "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-          "at": "2026-11-18T12:29:34.946536+00:00"
+          "at": "2026-11-25T16:54:49.134301+00:00"
         },
         {
           "scope": "BUSINESS",
           "key": "offer_policy",
           "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-          "at": "2026-11-18T12:29:34.945434+00:00"
+          "at": "2026-11-25T16:54:49.132772+00:00"
         },
         {
           "scope": "BUSINESS",
           "key": "tone_guide",
           "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-          "at": "2026-11-18T12:29:34.944823+00:00"
+          "at": "2026-11-25T16:54:49.131772+00:00"
         }
       ],
       "message": "Hi Priya, hope you are doing well. Your last order (Muslin Cotton Kurta) is something we can get ready for you again. Would you like to reorder?"
     },
     "steps": [
       {
-        "id": 148,
+        "id": 293,
         "index": 0,
         "node": "load_context",
         "status": "OK",
         "summary": "Eligible: Inactive for 45 days with consent on record.",
-        "created_at": "2026-11-18T12:29:34.984994+00:00",
+        "created_at": "2026-11-25T16:54:49.203683+00:00",
         "tool": {
           "name": "retrieve_customer_history",
           "status": "SUCCESS",
@@ -94,7 +94,7 @@
           "error": "",
           "result": {
             "customer": {
-              "id": 181,
+              "id": 558,
               "name": "Priya Nair",
               "language": "en",
               "city": "Mumbai",
@@ -111,7 +111,7 @@
                 "category": "Apparel",
                 "quantity": 1,
                 "amount": "1299.00",
-                "purchased_at": "2026-10-04T12:29:34.922409+00:00"
+                "purchased_at": "2026-10-11T16:54:48.961913+00:00"
               }
             ],
             "conversation": [],
@@ -120,19 +120,19 @@
                 "scope": "BUSINESS",
                 "key": "channel_note",
                 "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-                "at": "2026-11-18T12:29:34.946536+00:00"
+                "at": "2026-11-25T16:54:49.134301+00:00"
               },
               {
                 "scope": "BUSINESS",
                 "key": "offer_policy",
                 "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-                "at": "2026-11-18T12:29:34.945434+00:00"
+                "at": "2026-11-25T16:54:49.132772+00:00"
               },
               {
                 "scope": "BUSINESS",
                 "key": "tone_guide",
                 "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-                "at": "2026-11-18T12:29:34.944823+00:00"
+                "at": "2026-11-25T16:54:49.131772+00:00"
               }
             ],
             "eligibility": {
@@ -153,15 +153,16 @@
         "error": ""
       },
       {
-        "id": 149,
+        "id": 294,
         "index": 1,
         "node": "decide",
         "status": "OK",
         "summary": "Proposed a 0% incentive. No owner approval needed: the offer is within the autonomous limit.",
-        "created_at": "2026-11-18T12:29:35.024717+00:00",
+        "created_at": "2026-11-25T16:54:49.269341+00:00",
         "tool": null,
         "model": {
           "used": "rule-engine-v1",
+          "provider": "Local (rule engine)",
           "strategy": "deterministic",
           "prompt_tokens": 0,
           "completion_tokens": 0,
@@ -184,15 +185,16 @@
         "error": ""
       },
       {
-        "id": 150,
+        "id": 295,
         "index": 2,
         "node": "draft_message",
         "status": "OK",
         "summary": "Drafted a 144-character message.",
-        "created_at": "2026-11-18T12:29:35.054106+00:00",
+        "created_at": "2026-11-25T16:54:49.318747+00:00",
         "tool": null,
         "model": {
           "used": "rule-engine-v1",
+          "provider": "Local (rule engine)",
           "strategy": "deterministic",
           "prompt_tokens": 0,
           "completion_tokens": 0,
@@ -206,12 +208,12 @@
         "error": ""
       },
       {
-        "id": 151,
+        "id": 296,
         "index": 3,
         "node": "send_followup",
         "status": "FAILED",
         "summary": "Could not send the message: Simulated provider unavailable (outage injected, 0 failure(s) left). (gave up after 3 attempts)",
-        "created_at": "2026-11-18T12:29:35.122802+00:00",
+        "created_at": "2026-11-25T16:54:49.414717+00:00",
         "tool": {
           "name": "send_followup",
           "status": "FAILED",
@@ -225,12 +227,12 @@
         "error": "Simulated provider unavailable (outage injected, 0 failure(s) left). (gave up after 3 attempts)"
       },
       {
-        "id": 152,
+        "id": 297,
         "index": 4,
         "node": "handle_failure",
         "status": "FAILED",
         "summary": "Failed at send_followup: Simulated provider unavailable (outage injected, 0 failure(s) left). (gave up after 3 attempts). Checkpoint saved \u2014 a retry resumes from this step instead of repeating the run.",
-        "created_at": "2026-11-18T12:29:35.162385+00:00",
+        "created_at": "2026-11-25T16:54:49.474523+00:00",
         "tool": null,
         "model": null,
         "output": {
@@ -252,9 +254,9 @@
     "tool_max_attempts": 3
   },
   "step_4_retry": {
-    "run_id": "d96b3cac-acb6-489d-9b48-6bd7a21f19ca",
+    "run_id": "b9a09db6-bee4-4acc-a7db-11d5e833c84a",
     "mode": "FOLLOW_UP",
-    "customer_id": 181,
+    "customer_id": 558,
     "customer_name": "Priya Nair",
     "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
     "status": "COMPLETED",
@@ -263,9 +265,9 @@
     "outcome_summary": "Follow-up sent to Priya Nair offering Muslin Cotton Kurta. Awaiting the customer's response.",
     "resolved_autonomously": true,
     "resume_count": 1,
-    "created_at": "2026-11-18T12:29:34.964305+00:00",
-    "finished_at": "2026-11-18T12:29:35.360383+00:00",
-    "duration_ms": 396,
+    "created_at": "2026-11-25T16:54:49.169347+00:00",
+    "finished_at": "2026-11-25T16:54:49.776553+00:00",
+    "duration_ms": 607,
     "step_count": 9,
     "state": {
       "mode": "FOLLOW_UP",
@@ -288,7 +290,7 @@
         "Recalled 3 memory note(s) from earlier runs."
       ],
       "customer": {
-        "id": 181,
+        "id": 558,
         "name": "Priya Nair",
         "language": "en",
         "city": "Mumbai",
@@ -306,31 +308,31 @@
           "scope": "BUSINESS",
           "key": "channel_note",
           "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-          "at": "2026-11-18T12:29:34.946536+00:00"
+          "at": "2026-11-25T16:54:49.134301+00:00"
         },
         {
           "scope": "BUSINESS",
           "key": "offer_policy",
           "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-          "at": "2026-11-18T12:29:34.945434+00:00"
+          "at": "2026-11-25T16:54:49.132772+00:00"
         },
         {
           "scope": "BUSINESS",
           "key": "tone_guide",
           "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-          "at": "2026-11-18T12:29:34.944823+00:00"
+          "at": "2026-11-25T16:54:49.131772+00:00"
         }
       ],
       "message": "Hi Priya, hope you are doing well. Your last order (Muslin Cotton Kurta) is something we can get ready for you again. Would you like to reorder?"
     },
     "steps": [
       {
-        "id": 148,
+        "id": 293,
         "index": 0,
         "node": "load_context",
         "status": "OK",
         "summary": "Eligible: Inactive for 45 days with consent on record.",
-        "created_at": "2026-11-18T12:29:34.984994+00:00",
+        "created_at": "2026-11-25T16:54:49.203683+00:00",
         "tool": {
           "name": "retrieve_customer_history",
           "status": "SUCCESS",
@@ -339,7 +341,7 @@
           "error": "",
           "result": {
             "customer": {
-              "id": 181,
+              "id": 558,
               "name": "Priya Nair",
               "language": "en",
               "city": "Mumbai",
@@ -356,7 +358,7 @@
                 "category": "Apparel",
                 "quantity": 1,
                 "amount": "1299.00",
-                "purchased_at": "2026-10-04T12:29:34.922409+00:00"
+                "purchased_at": "2026-10-11T16:54:48.961913+00:00"
               }
             ],
             "conversation": [],
@@ -365,19 +367,19 @@
                 "scope": "BUSINESS",
                 "key": "channel_note",
                 "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-                "at": "2026-11-18T12:29:34.946536+00:00"
+                "at": "2026-11-25T16:54:49.134301+00:00"
               },
               {
                 "scope": "BUSINESS",
                 "key": "offer_policy",
                 "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-                "at": "2026-11-18T12:29:34.945434+00:00"
+                "at": "2026-11-25T16:54:49.132772+00:00"
               },
               {
                 "scope": "BUSINESS",
                 "key": "tone_guide",
                 "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-                "at": "2026-11-18T12:29:34.944823+00:00"
+                "at": "2026-11-25T16:54:49.131772+00:00"
               }
             ],
             "eligibility": {
@@ -398,15 +400,16 @@
         "error": ""
       },
       {
-        "id": 149,
+        "id": 294,
         "index": 1,
         "node": "decide",
         "status": "OK",
         "summary": "Proposed a 0% incentive. No owner approval needed: the offer is within the autonomous limit.",
-        "created_at": "2026-11-18T12:29:35.024717+00:00",
+        "created_at": "2026-11-25T16:54:49.269341+00:00",
         "tool": null,
         "model": {
           "used": "rule-engine-v1",
+          "provider": "Local (rule engine)",
           "strategy": "deterministic",
           "prompt_tokens": 0,
           "completion_tokens": 0,
@@ -429,15 +432,16 @@
         "error": ""
       },
       {
-        "id": 150,
+        "id": 295,
         "index": 2,
         "node": "draft_message",
         "status": "OK",
         "summary": "Drafted a 144-character message.",
-        "created_at": "2026-11-18T12:29:35.054106+00:00",
+        "created_at": "2026-11-25T16:54:49.318747+00:00",
         "tool": null,
         "model": {
           "used": "rule-engine-v1",
+          "provider": "Local (rule engine)",
           "strategy": "deterministic",
           "prompt_tokens": 0,
           "completion_tokens": 0,
@@ -451,12 +455,12 @@
         "error": ""
       },
       {
-        "id": 151,
+        "id": 296,
         "index": 3,
         "node": "send_followup",
         "status": "FAILED",
         "summary": "Could not send the message: Simulated provider unavailable (outage injected, 0 failure(s) left). (gave up after 3 attempts)",
-        "created_at": "2026-11-18T12:29:35.122802+00:00",
+        "created_at": "2026-11-25T16:54:49.414717+00:00",
         "tool": {
           "name": "send_followup",
           "status": "FAILED",
@@ -470,12 +474,12 @@
         "error": "Simulated provider unavailable (outage injected, 0 failure(s) left). (gave up after 3 attempts)"
       },
       {
-        "id": 152,
+        "id": 297,
         "index": 4,
         "node": "handle_failure",
         "status": "FAILED",
         "summary": "Failed at send_followup: Simulated provider unavailable (outage injected, 0 failure(s) left). (gave up after 3 attempts). Checkpoint saved \u2014 a retry resumes from this step instead of repeating the run.",
-        "created_at": "2026-11-18T12:29:35.162385+00:00",
+        "created_at": "2026-11-25T16:54:49.474523+00:00",
         "tool": null,
         "model": null,
         "output": {
@@ -487,12 +491,12 @@
         "error": ""
       },
       {
-        "id": 153,
+        "id": 298,
         "index": 5,
         "node": "send_followup",
         "status": "OK",
-        "summary": "Sent via WHATSAPP (message sim-529ee23f10f6).",
-        "created_at": "2026-11-18T12:29:35.241040+00:00",
+        "summary": "Sent via WHATSAPP (message sim-c642ca911b83).",
+        "created_at": "2026-11-25T16:54:49.608381+00:00",
         "tool": {
           "name": "send_followup",
           "status": "SUCCESS",
@@ -501,7 +505,7 @@
           "error": "",
           "result": {
             "provider": "simulated",
-            "message_id": "sim-529ee23f10f6",
+            "message_id": "sim-c642ca911b83",
             "to": "+919810010001",
             "channel": "WHATSAPP",
             "status": "DELIVERED"
@@ -512,12 +516,12 @@
         "error": ""
       },
       {
-        "id": 154,
+        "id": 299,
         "index": 6,
         "node": "create_reorder",
         "status": "OK",
-        "summary": "Prepared reorder request ro-181-1795004975.",
-        "created_at": "2026-11-18T12:29:35.289313+00:00",
+        "summary": "Prepared reorder request ro-558-1795625689.",
+        "created_at": "2026-11-25T16:54:49.679765+00:00",
         "tool": {
           "name": "create_reorder_request",
           "status": "SUCCESS",
@@ -525,7 +529,7 @@
           "authorized": true,
           "error": "",
           "result": {
-            "reorder_request_id": "ro-181-1795004975",
+            "reorder_request_id": "ro-558-1795625689",
             "product_name": "Muslin Cotton Kurta",
             "discount_pct": 0,
             "channel": "WHATSAPP",
@@ -537,12 +541,12 @@
         "error": ""
       },
       {
-        "id": 155,
+        "id": 300,
         "index": 7,
         "node": "verify_outcome",
         "status": "OK",
         "summary": "All checks passed: the message was recorded and the reorder is prepared.",
-        "created_at": "2026-11-18T12:29:35.324227+00:00",
+        "created_at": "2026-11-25T16:54:49.731093+00:00",
         "tool": null,
         "model": null,
         "output": {
@@ -556,12 +560,12 @@
         "error": ""
       },
       {
-        "id": 156,
+        "id": 301,
         "index": 8,
         "node": "finalize",
         "status": "OK",
         "summary": "COMPLETED: Follow-up sent to Priya Nair offering Muslin Cotton Kurta. Awaiting the customer's response.",
-        "created_at": "2026-11-18T12:29:35.384949+00:00",
+        "created_at": "2026-11-25T16:54:49.806163+00:00",
         "tool": null,
         "model": null,
         "output": {
@@ -588,9 +592,9 @@
     "exactly_one_message_after_retry": true
   },
   "final_trace": {
-    "run_id": "d96b3cac-acb6-489d-9b48-6bd7a21f19ca",
+    "run_id": "b9a09db6-bee4-4acc-a7db-11d5e833c84a",
     "mode": "FOLLOW_UP",
-    "customer_id": 181,
+    "customer_id": 558,
     "customer_name": "Priya Nair",
     "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
     "status": "COMPLETED",
@@ -599,9 +603,9 @@
     "outcome_summary": "Follow-up sent to Priya Nair offering Muslin Cotton Kurta. Awaiting the customer's response.",
     "resolved_autonomously": true,
     "resume_count": 1,
-    "created_at": "2026-11-18T12:29:34.964305+00:00",
-    "finished_at": "2026-11-18T12:29:35.360383+00:00",
-    "duration_ms": 396,
+    "created_at": "2026-11-25T16:54:49.169347+00:00",
+    "finished_at": "2026-11-25T16:54:49.776553+00:00",
+    "duration_ms": 607,
     "step_count": 9,
     "state": {
       "mode": "FOLLOW_UP",
@@ -624,7 +628,7 @@
         "Recalled 3 memory note(s) from earlier runs."
       ],
       "customer": {
-        "id": 181,
+        "id": 558,
         "name": "Priya Nair",
         "language": "en",
         "city": "Mumbai",
@@ -642,31 +646,31 @@
           "scope": "BUSINESS",
           "key": "channel_note",
           "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-          "at": "2026-11-18T12:29:34.946536+00:00"
+          "at": "2026-11-25T16:54:49.134301+00:00"
         },
         {
           "scope": "BUSINESS",
           "key": "offer_policy",
           "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-          "at": "2026-11-18T12:29:34.945434+00:00"
+          "at": "2026-11-25T16:54:49.132772+00:00"
         },
         {
           "scope": "BUSINESS",
           "key": "tone_guide",
           "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-          "at": "2026-11-18T12:29:34.944823+00:00"
+          "at": "2026-11-25T16:54:49.131772+00:00"
         }
       ],
       "message": "Hi Priya, hope you are doing well. Your last order (Muslin Cotton Kurta) is something we can get ready for you again. Would you like to reorder?"
     },
     "steps": [
       {
-        "id": 148,
+        "id": 293,
         "index": 0,
         "node": "load_context",
         "status": "OK",
         "summary": "Eligible: Inactive for 45 days with consent on record.",
-        "created_at": "2026-11-18T12:29:34.984994+00:00",
+        "created_at": "2026-11-25T16:54:49.203683+00:00",
         "tool": {
           "name": "retrieve_customer_history",
           "status": "SUCCESS",
@@ -675,7 +679,7 @@
           "error": "",
           "result": {
             "customer": {
-              "id": 181,
+              "id": 558,
               "name": "Priya Nair",
               "language": "en",
               "city": "Mumbai",
@@ -692,7 +696,7 @@
                 "category": "Apparel",
                 "quantity": 1,
                 "amount": "1299.00",
-                "purchased_at": "2026-10-04T12:29:34.922409+00:00"
+                "purchased_at": "2026-10-11T16:54:48.961913+00:00"
               }
             ],
             "conversation": [],
@@ -701,19 +705,19 @@
                 "scope": "BUSINESS",
                 "key": "channel_note",
                 "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-                "at": "2026-11-18T12:29:34.946536+00:00"
+                "at": "2026-11-25T16:54:49.134301+00:00"
               },
               {
                 "scope": "BUSINESS",
                 "key": "offer_policy",
                 "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-                "at": "2026-11-18T12:29:34.945434+00:00"
+                "at": "2026-11-25T16:54:49.132772+00:00"
               },
               {
                 "scope": "BUSINESS",
                 "key": "tone_guide",
                 "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-                "at": "2026-11-18T12:29:34.944823+00:00"
+                "at": "2026-11-25T16:54:49.131772+00:00"
               }
             ],
             "eligibility": {
@@ -734,15 +738,16 @@
         "error": ""
       },
       {
-        "id": 149,
+        "id": 294,
         "index": 1,
         "node": "decide",
         "status": "OK",
         "summary": "Proposed a 0% incentive. No owner approval needed: the offer is within the autonomous limit.",
-        "created_at": "2026-11-18T12:29:35.024717+00:00",
+        "created_at": "2026-11-25T16:54:49.269341+00:00",
         "tool": null,
         "model": {
           "used": "rule-engine-v1",
+          "provider": "Local (rule engine)",
           "strategy": "deterministic",
           "prompt_tokens": 0,
           "completion_tokens": 0,
@@ -765,15 +770,16 @@
         "error": ""
       },
       {
-        "id": 150,
+        "id": 295,
         "index": 2,
         "node": "draft_message",
         "status": "OK",
         "summary": "Drafted a 144-character message.",
-        "created_at": "2026-11-18T12:29:35.054106+00:00",
+        "created_at": "2026-11-25T16:54:49.318747+00:00",
         "tool": null,
         "model": {
           "used": "rule-engine-v1",
+          "provider": "Local (rule engine)",
           "strategy": "deterministic",
           "prompt_tokens": 0,
           "completion_tokens": 0,
@@ -787,12 +793,12 @@
         "error": ""
       },
       {
-        "id": 151,
+        "id": 296,
         "index": 3,
         "node": "send_followup",
         "status": "FAILED",
         "summary": "Could not send the message: Simulated provider unavailable (outage injected, 0 failure(s) left). (gave up after 3 attempts)",
-        "created_at": "2026-11-18T12:29:35.122802+00:00",
+        "created_at": "2026-11-25T16:54:49.414717+00:00",
         "tool": {
           "name": "send_followup",
           "status": "FAILED",
@@ -806,12 +812,12 @@
         "error": "Simulated provider unavailable (outage injected, 0 failure(s) left). (gave up after 3 attempts)"
       },
       {
-        "id": 152,
+        "id": 297,
         "index": 4,
         "node": "handle_failure",
         "status": "FAILED",
         "summary": "Failed at send_followup: Simulated provider unavailable (outage injected, 0 failure(s) left). (gave up after 3 attempts). Checkpoint saved \u2014 a retry resumes from this step instead of repeating the run.",
-        "created_at": "2026-11-18T12:29:35.162385+00:00",
+        "created_at": "2026-11-25T16:54:49.474523+00:00",
         "tool": null,
         "model": null,
         "output": {
@@ -823,12 +829,12 @@
         "error": ""
       },
       {
-        "id": 153,
+        "id": 298,
         "index": 5,
         "node": "send_followup",
         "status": "OK",
-        "summary": "Sent via WHATSAPP (message sim-529ee23f10f6).",
-        "created_at": "2026-11-18T12:29:35.241040+00:00",
+        "summary": "Sent via WHATSAPP (message sim-c642ca911b83).",
+        "created_at": "2026-11-25T16:54:49.608381+00:00",
         "tool": {
           "name": "send_followup",
           "status": "SUCCESS",
@@ -837,7 +843,7 @@
           "error": "",
           "result": {
             "provider": "simulated",
-            "message_id": "sim-529ee23f10f6",
+            "message_id": "sim-c642ca911b83",
             "to": "+919810010001",
             "channel": "WHATSAPP",
             "status": "DELIVERED"
@@ -848,12 +854,12 @@
         "error": ""
       },
       {
-        "id": 154,
+        "id": 299,
         "index": 6,
         "node": "create_reorder",
         "status": "OK",
-        "summary": "Prepared reorder request ro-181-1795004975.",
-        "created_at": "2026-11-18T12:29:35.289313+00:00",
+        "summary": "Prepared reorder request ro-558-1795625689.",
+        "created_at": "2026-11-25T16:54:49.679765+00:00",
         "tool": {
           "name": "create_reorder_request",
           "status": "SUCCESS",
@@ -861,7 +867,7 @@
           "authorized": true,
           "error": "",
           "result": {
-            "reorder_request_id": "ro-181-1795004975",
+            "reorder_request_id": "ro-558-1795625689",
             "product_name": "Muslin Cotton Kurta",
             "discount_pct": 0,
             "channel": "WHATSAPP",
@@ -873,12 +879,12 @@
         "error": ""
       },
       {
-        "id": 155,
+        "id": 300,
         "index": 7,
         "node": "verify_outcome",
         "status": "OK",
         "summary": "All checks passed: the message was recorded and the reorder is prepared.",
-        "created_at": "2026-11-18T12:29:35.324227+00:00",
+        "created_at": "2026-11-25T16:54:49.731093+00:00",
         "tool": null,
         "model": null,
         "output": {
@@ -892,12 +898,12 @@
         "error": ""
       },
       {
-        "id": 156,
+        "id": 301,
         "index": 8,
         "node": "finalize",
         "status": "OK",
         "summary": "COMPLETED: Follow-up sent to Priya Nair offering Muslin Cotton Kurta. Awaiting the customer's response.",
-        "created_at": "2026-11-18T12:29:35.384949+00:00",
+        "created_at": "2026-11-25T16:54:49.806163+00:00",
         "tool": null,
         "model": null,
         "output": {

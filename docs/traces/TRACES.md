@@ -13,8 +13,8 @@ changes these files.
 
 | File | Scenario | Outcome |
 |---|---|---|
-| [`00_baseline.json`](00_baseline.json) | The dataset and policy before anything runs | 9 customers, 13 purchases, 0 runs |
-| [`01_success_autonomous_reorder.json`](01_success_autonomous_reorder.json) | A lapsed customer is won back with no human involved | `COMPLETED`, `resolved_autonomously: true`, then `CONVERTED` by a real order |
+| [`00_baseline.json`](00_baseline.json) | The dataset and policy before anything runs | 50 customers, 54 purchases, 0 runs |
+| [`01_success_autonomous_reorder.json`](01_success_autonomous_reorder.json) | A lapsed customer is won back with no human involved | `COMPLETED`, `resolved_autonomously: true`, then `CONVERTED` by the customer's positive reply |
 | [`02_adverse_customer_rejection.json`](02_adverse_customer_rejection.json) | The customer says no | Follow-up `DECLINED`, no purchase invented, a second attempt refused by the cooldown |
 | [`03_approval_discount_gate.json`](03_approval_discount_gate.json) | A discount the worker may not grant alone | `AWAITING_APPROVAL` → owner approves → `COMPLETED` |
 | [`04_recovery_after_outage.json`](04_recovery_after_outage.json) | The provider fails mid-run | `FAILED` with `resume_node: send_followup` → retry → `COMPLETED`, one message, not two |
@@ -27,8 +27,8 @@ every step, a `checks` block, and the final trace including every graph step.
 ## 00 — Baseline
 
 ```
-customers    9 total · 1 opted out · 8 with consent
-purchases    13 orders · ₹20,615 lifetime
+customers    50 total · 2 opted out · 47 with consent
+purchases    54 orders · ₹74,235 lifetime
 follow-ups   1 (a prior decline, back-dated to seed the cooldown rule)
 runs         0
 ```
@@ -45,10 +45,10 @@ Three tools are registered (`retrieve_customer_history`, `send_followup`,
 
 ```
 load_context     tool retrieve_customer_history     "Eligible: Inactive for 45 days with consent on record."
-decide           rule engine                        "Proposed a 0% incentive. No owner approval needed."
+decide           rule engine                        "Proposed a 0% incentive. No owner approval needed: the offer is within the autonomous limit."
 draft_message                                       "Drafted a 144-character message."
-send_followup    tool send_followup                 "Sent via WHATSAPP (message sim-91f38775f8f0)."
-create_reorder   tool create_reorder_request        "Prepared reorder request ro-100-1795004935."
+send_followup    tool send_followup                 "Sent via WHATSAPP (message sim-eb094d075178)."
+create_reorder   tool create_reorder_request        "Prepared reorder request ro-408-1795625686."
 verify_outcome                                      "All checks passed: the message was recorded and the reorder is prepared."
 finalize                                            "COMPLETED: Follow-up sent to Priya Nair offering Muslin Cotton Kurta."
 ```
@@ -58,20 +58,23 @@ The message that went out:
 > Hi Priya, hope you are doing well. Your last order (Muslin Cotton Kurta) is something
 > we can get ready for you again. Would you like to reorder?
 
+The customer replies *"Yes please, I would like to reorder"*. That reply is the win.
+
 ```json
 "checks": {
   "run_completed": true,
   "resolved_autonomously": true,
   "no_approval_recorded": true,
   "exactly_one_message_sent": true,
-  "converted_after_purchase": true,
-  "customer_status": "REACTIVATED"
+  "reply_classified_positive": true,
+  "follow_up_converted": true
 }
 ```
 
-The important part is `converted_after_purchase`. The worker never writes `CONVERTED`
-itself — the order that arrives afterwards does, and the follow-up is matched to it
-inside the same transaction.
+The important part is `reply_classified_positive`. The worker only sends a message — it
+never writes `CONVERTED` on its own. The follow-up becomes `CONVERTED` when the customer
+answers positively, because the order itself is placed on the shop site, out of the
+worker's sight.
 
 ---
 

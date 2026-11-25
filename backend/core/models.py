@@ -80,7 +80,8 @@ class Customer(models.Model):
 
 
 class Purchase(models.Model):
-    """A completed order. The fact the whole business goal is measured against."""
+    """An order already on record. Read-only history: it decides who has lapsed
+    and what to offer back, but the worker never writes one."""
 
     customer = models.ForeignKey(Customer, related_name='purchases', on_delete=models.CASCADE)
     product_name = models.CharField(max_length=160)
@@ -127,8 +128,10 @@ class Interaction(models.Model):
 class FollowUp(models.Model):
     """The unit of work: one attempt to bring one customer back.
 
-    ``status`` is the honest record of what the worker managed to achieve — it is
-    never set to ``CONVERTED`` unless a real ``Purchase`` exists afterwards.
+    ``status`` is the honest record of what the worker managed to achieve —
+    ``CONVERTED`` means the customer replied positively to the follow-up. The
+    actual order happens on the shop site, so the worker never records a
+    purchase; the win is the reply, not an order it cannot see.
     """
 
     class Status(models.TextChoices):

@@ -2,9 +2,9 @@
   "scenario": "Adverse \u2014 the customer declines",
   "expectation": "The reply is classified as a decline, the follow-up is recorded as declined, no purchase is invented, and an immediate second attempt is refused by the cooldown rule rather than by the model.",
   "step_1_worker_run": {
-    "run_id": "1445ec9a-5d67-4630-926e-268a5772ad76",
+    "run_id": "91a74950-087a-4c14-b0a1-5b4fce56ed25",
     "mode": "FOLLOW_UP",
-    "customer_id": 164,
+    "customer_id": 459,
     "customer_name": "Meera Joshi",
     "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
     "status": "COMPLETED",
@@ -13,9 +13,9 @@
     "outcome_summary": "Follow-up sent to Meera Joshi offering Cold Pressed Coconut Oil 1L. Awaiting the customer's response.",
     "resolved_autonomously": true,
     "resume_count": 0,
-    "created_at": "2026-11-18T12:29:33.582840+00:00",
-    "finished_at": "2026-11-18T12:29:33.943946+00:00",
-    "duration_ms": 361,
+    "created_at": "2026-11-25T16:54:46.955044+00:00",
+    "finished_at": "2026-11-25T16:54:47.363887+00:00",
+    "duration_ms": 408,
     "step_count": 7,
     "state": {
       "mode": "FOLLOW_UP",
@@ -35,7 +35,7 @@
         "Recalled 3 memory note(s) from earlier runs."
       ],
       "customer": {
-        "id": 164,
+        "id": 459,
         "name": "Meera Joshi",
         "language": "en",
         "city": "Bengaluru",
@@ -51,33 +51,33 @@
       "memory": [
         {
           "scope": "BUSINESS",
-          "key": "offer_policy",
-          "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-          "at": "2026-11-18T12:29:33.571493+00:00"
+          "key": "channel_note",
+          "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
+          "at": "2026-11-25T16:54:46.938921+00:00"
         },
         {
           "scope": "BUSINESS",
-          "key": "channel_note",
-          "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-          "at": "2026-11-18T12:29:33.571493+00:00"
+          "key": "offer_policy",
+          "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+          "at": "2026-11-25T16:54:46.937871+00:00"
         },
         {
           "scope": "BUSINESS",
           "key": "tone_guide",
           "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-          "at": "2026-11-18T12:29:33.570383+00:00"
+          "at": "2026-11-25T16:54:46.936264+00:00"
         }
       ],
       "message": "Hi Meera, hope you are doing well. Your last order (Cold Pressed Coconut Oil 1L) is something we can get ready for you again. Would you like to reorder?"
     },
     "steps": [
       {
-        "id": 128,
+        "id": 273,
         "index": 0,
         "node": "load_context",
         "status": "OK",
         "summary": "Eligible: Inactive for 50 days with consent on record.",
-        "created_at": "2026-11-18T12:29:33.614193+00:00",
+        "created_at": "2026-11-25T16:54:46.993522+00:00",
         "tool": {
           "name": "retrieve_customer_history",
           "status": "SUCCESS",
@@ -86,7 +86,7 @@
           "error": "",
           "result": {
             "customer": {
-              "id": 164,
+              "id": 459,
               "name": "Meera Joshi",
               "language": "en",
               "city": "Bengaluru",
@@ -103,28 +103,28 @@
                 "category": "Grocery",
                 "quantity": 2,
                 "amount": "780.00",
-                "purchased_at": "2026-09-29T12:29:33.549675+00:00"
+                "purchased_at": "2026-10-06T16:54:46.765683+00:00"
               }
             ],
             "conversation": [],
             "memory": [
               {
                 "scope": "BUSINESS",
-                "key": "offer_policy",
-                "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-                "at": "2026-11-18T12:29:33.571493+00:00"
+                "key": "channel_note",
+                "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
+                "at": "2026-11-25T16:54:46.938921+00:00"
               },
               {
                 "scope": "BUSINESS",
-                "key": "channel_note",
-                "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-                "at": "2026-11-18T12:29:33.571493+00:00"
+                "key": "offer_policy",
+                "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+                "at": "2026-11-25T16:54:46.937871+00:00"
               },
               {
                 "scope": "BUSINESS",
                 "key": "tone_guide",
                 "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-                "at": "2026-11-18T12:29:33.570383+00:00"
+                "at": "2026-11-25T16:54:46.936264+00:00"
               }
             ],
             "eligibility": {
@@ -145,15 +145,16 @@
         "error": ""
       },
       {
-        "id": 129,
+        "id": 274,
         "index": 1,
         "node": "decide",
         "status": "OK",
         "summary": "Proposed a 0% incentive. No owner approval needed: the offer is within the autonomous limit.",
-        "created_at": "2026-11-18T12:29:33.669849+00:00",
+        "created_at": "2026-11-25T16:54:47.062307+00:00",
         "tool": null,
         "model": {
           "used": "rule-engine-v1",
+          "provider": "Local (rule engine)",
           "strategy": "deterministic",
           "prompt_tokens": 0,
           "completion_tokens": 0,
@@ -176,15 +177,16 @@
         "error": ""
       },
       {
-        "id": 130,
+        "id": 275,
         "index": 2,
         "node": "draft_message",
         "status": "OK",
         "summary": "Drafted a 152-character message.",
-        "created_at": "2026-11-18T12:29:33.712756+00:00",
+        "created_at": "2026-11-25T16:54:47.106890+00:00",
         "tool": null,
         "model": {
           "used": "rule-engine-v1",
+          "provider": "Local (rule engine)",
           "strategy": "deterministic",
           "prompt_tokens": 0,
           "completion_tokens": 0,
@@ -198,12 +200,12 @@
         "error": ""
       },
       {
-        "id": 131,
+        "id": 276,
         "index": 3,
         "node": "send_followup",
         "status": "OK",
-        "summary": "Sent via WHATSAPP (message sim-ba8170c6686b).",
-        "created_at": "2026-11-18T12:29:33.781938+00:00",
+        "summary": "Sent via WHATSAPP (message sim-fe1f7c6eee9a).",
+        "created_at": "2026-11-25T16:54:47.187129+00:00",
         "tool": {
           "name": "send_followup",
           "status": "SUCCESS",
@@ -212,7 +214,7 @@
           "error": "",
           "result": {
             "provider": "simulated",
-            "message_id": "sim-ba8170c6686b",
+            "message_id": "sim-fe1f7c6eee9a",
             "to": "+919810010002",
             "channel": "WHATSAPP",
             "status": "DELIVERED"
@@ -223,12 +225,12 @@
         "error": ""
       },
       {
-        "id": 132,
+        "id": 277,
         "index": 4,
         "node": "create_reorder",
         "status": "OK",
-        "summary": "Prepared reorder request ro-164-1795004973.",
-        "created_at": "2026-11-18T12:29:33.858752+00:00",
+        "summary": "Prepared reorder request ro-459-1795625687.",
+        "created_at": "2026-11-25T16:54:47.267884+00:00",
         "tool": {
           "name": "create_reorder_request",
           "status": "SUCCESS",
@@ -236,7 +238,7 @@
           "authorized": true,
           "error": "",
           "result": {
-            "reorder_request_id": "ro-164-1795004973",
+            "reorder_request_id": "ro-459-1795625687",
             "product_name": "Cold Pressed Coconut Oil 1L",
             "discount_pct": 0,
             "channel": "WHATSAPP",
@@ -248,12 +250,12 @@
         "error": ""
       },
       {
-        "id": 133,
+        "id": 278,
         "index": 5,
         "node": "verify_outcome",
         "status": "OK",
         "summary": "All checks passed: the message was recorded and the reorder is prepared.",
-        "created_at": "2026-11-18T12:29:33.903112+00:00",
+        "created_at": "2026-11-25T16:54:47.319020+00:00",
         "tool": null,
         "model": null,
         "output": {
@@ -267,12 +269,12 @@
         "error": ""
       },
       {
-        "id": 134,
+        "id": 279,
         "index": 6,
         "node": "finalize",
         "status": "OK",
         "summary": "COMPLETED: Follow-up sent to Meera Joshi offering Cold Pressed Coconut Oil 1L. Awaiting the customer's response.",
-        "created_at": "2026-11-18T12:29:33.970932+00:00",
+        "created_at": "2026-11-25T16:54:47.389545+00:00",
         "tool": null,
         "model": null,
         "output": {
@@ -289,9 +291,9 @@
     "cost_usd": "0E-8"
   },
   "step_2_customer_reply": {
-    "run_id": "9e6218ea-d23a-4c83-a5f1-63f95ab03bb0",
+    "run_id": "a132d253-4304-4edd-905b-1be2bac0e4d0",
     "mode": "RESPONSE",
-    "customer_id": 164,
+    "customer_id": 459,
     "customer_name": "Meera Joshi",
     "goal": "Interpret Meera Joshi's reply and update what we know about them.",
     "status": "COMPLETED",
@@ -300,9 +302,9 @@
     "outcome_summary": "Customer declined: No thanks, not interested",
     "resolved_autonomously": true,
     "resume_count": 0,
-    "created_at": "2026-11-18T12:29:34.003421+00:00",
-    "finished_at": "2026-11-18T12:29:34.151550+00:00",
-    "duration_ms": 148,
+    "created_at": "2026-11-25T16:54:47.435103+00:00",
+    "finished_at": "2026-11-25T16:54:47.622193+00:00",
+    "duration_ms": 187,
     "step_count": 3,
     "state": {
       "mode": "RESPONSE",
@@ -317,7 +319,7 @@
         "Recalled 5 memory note(s) from earlier runs."
       ],
       "customer": {
-        "id": 164,
+        "id": 459,
         "name": "Meera Joshi",
         "language": "en",
         "city": "Bengaluru",
@@ -334,43 +336,43 @@
         {
           "scope": "CUSTOMER",
           "key": "last_run",
-          "value": "Win-back attempt completed on 2026-11-18.",
-          "at": "2026-11-18T12:29:33.956752+00:00"
+          "value": "Win-back attempt completed on 2026-11-25.",
+          "at": "2026-11-25T16:54:47.377106+00:00"
         },
         {
           "scope": "CUSTOMER",
           "key": "last_outreach",
-          "value": "Sent a follow-up on 2026-11-18 offering Cold Pressed Coconut Oil 1L with no discount",
-          "at": "2026-11-18T12:29:33.810217+00:00"
-        },
-        {
-          "scope": "BUSINESS",
-          "key": "offer_policy",
-          "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-          "at": "2026-11-18T12:29:33.571493+00:00"
+          "value": "Sent a follow-up on 2026-11-25 offering Cold Pressed Coconut Oil 1L with no discount",
+          "at": "2026-11-25T16:54:47.212036+00:00"
         },
         {
           "scope": "BUSINESS",
           "key": "channel_note",
           "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-          "at": "2026-11-18T12:29:33.571493+00:00"
+          "at": "2026-11-25T16:54:46.938921+00:00"
+        },
+        {
+          "scope": "BUSINESS",
+          "key": "offer_policy",
+          "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+          "at": "2026-11-25T16:54:46.937871+00:00"
         },
         {
           "scope": "BUSINESS",
           "key": "tone_guide",
           "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-          "at": "2026-11-18T12:29:33.570383+00:00"
+          "at": "2026-11-25T16:54:46.936264+00:00"
         }
       ]
     },
     "steps": [
       {
-        "id": 135,
+        "id": 280,
         "index": 0,
         "node": "load_context",
         "status": "OK",
         "summary": "Loaded the customer record and the open follow-up to interpret the reply.",
-        "created_at": "2026-11-18T12:29:34.032228+00:00",
+        "created_at": "2026-11-25T16:54:47.477150+00:00",
         "tool": {
           "name": "retrieve_customer_history",
           "status": "SUCCESS",
@@ -379,7 +381,7 @@
           "error": "",
           "result": {
             "customer": {
-              "id": 164,
+              "id": 459,
               "name": "Meera Joshi",
               "language": "en",
               "city": "Bengaluru",
@@ -396,7 +398,7 @@
                 "category": "Grocery",
                 "quantity": 2,
                 "amount": "780.00",
-                "purchased_at": "2026-09-29T12:29:33.549675+00:00"
+                "purchased_at": "2026-10-06T16:54:46.765683+00:00"
               }
             ],
             "conversation": [
@@ -404,45 +406,45 @@
                 "direction": "OUTBOUND",
                 "kind": "FOLLOW_UP",
                 "content": "Hi Meera, hope you are doing well. Your last order (Cold Pressed Coconut Oil 1L) is something we can get ready for you again. Would you like to reorder?",
-                "at": "2026-11-18T12:29:33.757118+00:00"
+                "at": "2026-11-25T16:54:47.159893+00:00"
               },
               {
                 "direction": "OUTBOUND",
                 "kind": "REORDER",
                 "content": "Reorder request prepared for Cold Pressed Coconut Oil 1L (no discount).",
-                "at": "2026-11-18T12:29:33.846999+00:00"
+                "at": "2026-11-25T16:54:47.250834+00:00"
               }
             ],
             "memory": [
               {
                 "scope": "CUSTOMER",
                 "key": "last_run",
-                "value": "Win-back attempt completed on 2026-11-18.",
-                "at": "2026-11-18T12:29:33.956752+00:00"
+                "value": "Win-back attempt completed on 2026-11-25.",
+                "at": "2026-11-25T16:54:47.377106+00:00"
               },
               {
                 "scope": "CUSTOMER",
                 "key": "last_outreach",
-                "value": "Sent a follow-up on 2026-11-18 offering Cold Pressed Coconut Oil 1L with no discount",
-                "at": "2026-11-18T12:29:33.810217+00:00"
-              },
-              {
-                "scope": "BUSINESS",
-                "key": "offer_policy",
-                "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-                "at": "2026-11-18T12:29:33.571493+00:00"
+                "value": "Sent a follow-up on 2026-11-25 offering Cold Pressed Coconut Oil 1L with no discount",
+                "at": "2026-11-25T16:54:47.212036+00:00"
               },
               {
                 "scope": "BUSINESS",
                 "key": "channel_note",
                 "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-                "at": "2026-11-18T12:29:33.571493+00:00"
+                "at": "2026-11-25T16:54:46.938921+00:00"
+              },
+              {
+                "scope": "BUSINESS",
+                "key": "offer_policy",
+                "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+                "at": "2026-11-25T16:54:46.937871+00:00"
               },
               {
                 "scope": "BUSINESS",
                 "key": "tone_guide",
                 "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-                "at": "2026-11-18T12:29:33.570383+00:00"
+                "at": "2026-11-25T16:54:46.936264+00:00"
               }
             ],
             "eligibility": {
@@ -457,15 +459,16 @@
         "error": ""
       },
       {
-        "id": 136,
+        "id": 281,
         "index": 1,
         "node": "handle_response",
         "status": "OK",
         "summary": "Classified the reply as NEGATIVE. No thanks, not interested",
-        "created_at": "2026-11-18T12:29:34.107980+00:00",
+        "created_at": "2026-11-25T16:54:47.576002+00:00",
         "tool": null,
         "model": {
           "used": "rule-engine-v1",
+          "provider": "Local (rule engine)",
           "strategy": "deterministic",
           "prompt_tokens": 0,
           "completion_tokens": 0,
@@ -481,12 +484,12 @@
         "error": ""
       },
       {
-        "id": 137,
+        "id": 282,
         "index": 2,
         "node": "finalize",
         "status": "OK",
         "summary": "COMPLETED: Customer declined: No thanks, not interested",
-        "created_at": "2026-11-18T12:29:34.166294+00:00",
+        "created_at": "2026-11-25T16:54:47.637710+00:00",
         "tool": null,
         "model": null,
         "output": {
@@ -503,16 +506,16 @@
     "cost_usd": "0E-8"
   },
   "step_3_follow_up_state": {
-    "id": 35,
+    "id": 62,
     "status": "DECLINED",
     "discount_pct": 0,
     "outcome_note": "No thanks, not interested",
-    "responded_at": "2026-11-18T12:29:34.086597+00:00"
+    "responded_at": "2026-11-25T16:54:47.546783+00:00"
   },
   "step_4_second_attempt": {
-    "run_id": "3d7ddc76-f70d-44a4-8a99-7c1ee8fd3ce5",
+    "run_id": "99d89fb0-cda6-442e-b0a0-3209fa9fbcdb",
     "mode": "FOLLOW_UP",
-    "customer_id": 164,
+    "customer_id": 459,
     "customer_name": "Meera Joshi",
     "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
     "status": "COMPLETED",
@@ -521,9 +524,9 @@
     "outcome_summary": "No follow-up sent \u2014 Customer already declined or was not approved for a follow-up 0 day(s) ago.",
     "resolved_autonomously": true,
     "resume_count": 0,
-    "created_at": "2026-11-18T12:29:34.201646+00:00",
-    "finished_at": "2026-11-18T12:29:34.275995+00:00",
-    "duration_ms": 74,
+    "created_at": "2026-11-25T16:54:47.695572+00:00",
+    "finished_at": "2026-11-25T16:54:47.783173+00:00",
+    "duration_ms": 87,
     "step_count": 2,
     "state": {
       "mode": "FOLLOW_UP",
@@ -539,7 +542,7 @@
         "Recalled 5 memory note(s) from earlier runs."
       ],
       "customer": {
-        "id": 164,
+        "id": 459,
         "name": "Meera Joshi",
         "language": "en",
         "city": "Bengaluru",
@@ -556,43 +559,43 @@
         {
           "scope": "CUSTOMER",
           "key": "declined_offer",
-          "value": "Declined a follow-up on 2026-11-18: \"No thanks, not interested\". Do not repeat this offer.",
-          "at": "2026-11-18T12:29:34.087598+00:00"
+          "value": "Declined a follow-up on 2026-11-25: \"No thanks, not interested\". Do not repeat this offer.",
+          "at": "2026-11-25T16:54:47.546783+00:00"
         },
         {
           "scope": "CUSTOMER",
           "key": "last_run",
-          "value": "Win-back attempt completed on 2026-11-18.",
-          "at": "2026-11-18T12:29:33.956752+00:00"
+          "value": "Win-back attempt completed on 2026-11-25.",
+          "at": "2026-11-25T16:54:47.377106+00:00"
         },
         {
           "scope": "CUSTOMER",
           "key": "last_outreach",
-          "value": "Sent a follow-up on 2026-11-18 offering Cold Pressed Coconut Oil 1L with no discount",
-          "at": "2026-11-18T12:29:33.810217+00:00"
-        },
-        {
-          "scope": "BUSINESS",
-          "key": "offer_policy",
-          "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-          "at": "2026-11-18T12:29:33.571493+00:00"
+          "value": "Sent a follow-up on 2026-11-25 offering Cold Pressed Coconut Oil 1L with no discount",
+          "at": "2026-11-25T16:54:47.212036+00:00"
         },
         {
           "scope": "BUSINESS",
           "key": "channel_note",
           "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-          "at": "2026-11-18T12:29:33.571493+00:00"
+          "at": "2026-11-25T16:54:46.938921+00:00"
+        },
+        {
+          "scope": "BUSINESS",
+          "key": "offer_policy",
+          "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+          "at": "2026-11-25T16:54:46.937871+00:00"
         }
       ]
     },
     "steps": [
       {
-        "id": 138,
+        "id": 283,
         "index": 0,
         "node": "load_context",
         "status": "SKIPPED",
         "summary": "Not eligible: Customer already declined or was not approved for a follow-up 0 day(s) ago.",
-        "created_at": "2026-11-18T12:29:34.230717+00:00",
+        "created_at": "2026-11-25T16:54:47.733015+00:00",
         "tool": {
           "name": "retrieve_customer_history",
           "status": "SUCCESS",
@@ -601,7 +604,7 @@
           "error": "",
           "result": {
             "customer": {
-              "id": 164,
+              "id": 459,
               "name": "Meera Joshi",
               "language": "en",
               "city": "Bengaluru",
@@ -618,7 +621,7 @@
                 "category": "Grocery",
                 "quantity": 2,
                 "amount": "780.00",
-                "purchased_at": "2026-09-29T12:29:33.549675+00:00"
+                "purchased_at": "2026-10-06T16:54:46.765683+00:00"
               }
             ],
             "conversation": [
@@ -626,51 +629,51 @@
                 "direction": "OUTBOUND",
                 "kind": "FOLLOW_UP",
                 "content": "Hi Meera, hope you are doing well. Your last order (Cold Pressed Coconut Oil 1L) is something we can get ready for you again. Would you like to reorder?",
-                "at": "2026-11-18T12:29:33.757118+00:00"
+                "at": "2026-11-25T16:54:47.159893+00:00"
               },
               {
                 "direction": "OUTBOUND",
                 "kind": "REORDER",
                 "content": "Reorder request prepared for Cold Pressed Coconut Oil 1L (no discount).",
-                "at": "2026-11-18T12:29:33.846999+00:00"
+                "at": "2026-11-25T16:54:47.250834+00:00"
               },
               {
                 "direction": "INBOUND",
                 "kind": "REPLY",
                 "content": "No thanks, not interested",
-                "at": "2026-11-18T12:29:34.075482+00:00"
+                "at": "2026-11-25T16:54:47.530461+00:00"
               }
             ],
             "memory": [
               {
                 "scope": "CUSTOMER",
                 "key": "declined_offer",
-                "value": "Declined a follow-up on 2026-11-18: \"No thanks, not interested\". Do not repeat this offer.",
-                "at": "2026-11-18T12:29:34.087598+00:00"
+                "value": "Declined a follow-up on 2026-11-25: \"No thanks, not interested\". Do not repeat this offer.",
+                "at": "2026-11-25T16:54:47.546783+00:00"
               },
               {
                 "scope": "CUSTOMER",
                 "key": "last_run",
-                "value": "Win-back attempt completed on 2026-11-18.",
-                "at": "2026-11-18T12:29:33.956752+00:00"
+                "value": "Win-back attempt completed on 2026-11-25.",
+                "at": "2026-11-25T16:54:47.377106+00:00"
               },
               {
                 "scope": "CUSTOMER",
                 "key": "last_outreach",
-                "value": "Sent a follow-up on 2026-11-18 offering Cold Pressed Coconut Oil 1L with no discount",
-                "at": "2026-11-18T12:29:33.810217+00:00"
-              },
-              {
-                "scope": "BUSINESS",
-                "key": "offer_policy",
-                "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-                "at": "2026-11-18T12:29:33.571493+00:00"
+                "value": "Sent a follow-up on 2026-11-25 offering Cold Pressed Coconut Oil 1L with no discount",
+                "at": "2026-11-25T16:54:47.212036+00:00"
               },
               {
                 "scope": "BUSINESS",
                 "key": "channel_note",
                 "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-                "at": "2026-11-18T12:29:33.571493+00:00"
+                "at": "2026-11-25T16:54:46.938921+00:00"
+              },
+              {
+                "scope": "BUSINESS",
+                "key": "offer_policy",
+                "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+                "at": "2026-11-25T16:54:46.937871+00:00"
               }
             ],
             "eligibility": {
@@ -690,12 +693,12 @@
         "error": ""
       },
       {
-        "id": 139,
+        "id": 284,
         "index": 1,
         "node": "finalize",
         "status": "OK",
         "summary": "COMPLETED: No follow-up sent \u2014 Customer already declined or was not approved for a follow-up 0 day(s) ago.",
-        "created_at": "2026-11-18T12:29:34.287838+00:00",
+        "created_at": "2026-11-25T16:54:47.799507+00:00",
         "tool": null,
         "model": null,
         "output": {

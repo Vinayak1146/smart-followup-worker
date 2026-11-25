@@ -2,9 +2,9 @@
   "scenario": "A discount pauses the worker for owner approval",
   "expectation": "The proposed discount exceeds the autonomous limit, so the run stops before anything is sent, an approval is raised with the findings the owner needs, and the decision resumes the paused run in place.",
   "step_1_worker_run": {
-    "run_id": "40cf9597-7cb4-42f8-a92b-d2c64a2de296",
+    "run_id": "8ff8da3c-d526-47b2-ab04-92acab6aafcf",
     "mode": "FOLLOW_UP",
-    "customer_id": 174,
+    "customer_id": 510,
     "customer_name": "Rahul Verma",
     "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
     "status": "AWAITING_APPROVAL",
@@ -13,7 +13,7 @@
     "outcome_summary": "",
     "resolved_autonomously": false,
     "resume_count": 0,
-    "created_at": "2026-11-18T12:29:34.433125+00:00",
+    "created_at": "2026-11-25T16:54:48.242887+00:00",
     "finished_at": null,
     "duration_ms": 0,
     "step_count": 3,
@@ -33,7 +33,7 @@
         "Recalled 3 memory note(s) from earlier runs."
       ],
       "customer": {
-        "id": 174,
+        "id": 510,
         "name": "Rahul Verma",
         "language": "en",
         "city": "Pune",
@@ -49,32 +49,32 @@
       "memory": [
         {
           "scope": "BUSINESS",
-          "key": "offer_policy",
-          "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-          "at": "2026-11-18T12:29:34.418921+00:00"
+          "key": "channel_note",
+          "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
+          "at": "2026-11-25T16:54:48.229995+00:00"
         },
         {
           "scope": "BUSINESS",
-          "key": "channel_note",
-          "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-          "at": "2026-11-18T12:29:34.418921+00:00"
+          "key": "offer_policy",
+          "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+          "at": "2026-11-25T16:54:48.228997+00:00"
         },
         {
           "scope": "BUSINESS",
           "key": "tone_guide",
           "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-          "at": "2026-11-18T12:29:34.417926+00:00"
+          "at": "2026-11-25T16:54:48.228000+00:00"
         }
       ]
     },
     "steps": [
       {
-        "id": 140,
+        "id": 285,
         "index": 0,
         "node": "load_context",
         "status": "OK",
         "summary": "Eligible: Inactive for 75 days with consent on record.",
-        "created_at": "2026-11-18T12:29:34.460475+00:00",
+        "created_at": "2026-11-25T16:54:48.276662+00:00",
         "tool": {
           "name": "retrieve_customer_history",
           "status": "SUCCESS",
@@ -83,7 +83,7 @@
           "error": "",
           "result": {
             "customer": {
-              "id": 174,
+              "id": 510,
               "name": "Rahul Verma",
               "language": "en",
               "city": "Pune",
@@ -100,42 +100,42 @@
                 "category": "Apparel",
                 "quantity": 1,
                 "amount": "2499.00",
-                "purchased_at": "2026-09-04T12:29:34.401975+00:00"
+                "purchased_at": "2026-09-11T16:54:48.053163+00:00"
               },
               {
                 "product_name": "Blue Denim Jacket",
                 "category": "Apparel",
                 "quantity": 1,
                 "amount": "2499.00",
-                "purchased_at": "2026-07-01T12:29:34.401975+00:00"
+                "purchased_at": "2026-07-08T16:54:48.053163+00:00"
               },
               {
                 "product_name": "White Sneakers",
                 "category": "Footwear",
                 "quantity": 1,
                 "amount": "1899.00",
-                "purchased_at": "2026-04-22T12:29:34.401975+00:00"
+                "purchased_at": "2026-04-29T16:54:48.053163+00:00"
               }
             ],
             "conversation": [],
             "memory": [
               {
                 "scope": "BUSINESS",
-                "key": "offer_policy",
-                "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-                "at": "2026-11-18T12:29:34.418921+00:00"
+                "key": "channel_note",
+                "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
+                "at": "2026-11-25T16:54:48.229995+00:00"
               },
               {
                 "scope": "BUSINESS",
-                "key": "channel_note",
-                "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-                "at": "2026-11-18T12:29:34.418921+00:00"
+                "key": "offer_policy",
+                "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+                "at": "2026-11-25T16:54:48.228997+00:00"
               },
               {
                 "scope": "BUSINESS",
                 "key": "tone_guide",
                 "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-                "at": "2026-11-18T12:29:34.417926+00:00"
+                "at": "2026-11-25T16:54:48.228000+00:00"
               }
             ],
             "eligibility": {
@@ -156,15 +156,16 @@
         "error": ""
       },
       {
-        "id": 141,
+        "id": 286,
         "index": 1,
         "node": "decide",
         "status": "OK",
         "summary": "Proposed a 15% incentive. A 15% discount exceeds the autonomous limit of 0%, so the owner must approve it.",
-        "created_at": "2026-11-18T12:29:34.502705+00:00",
+        "created_at": "2026-11-25T16:54:48.343990+00:00",
         "tool": null,
         "model": {
           "used": "rule-engine-v1",
+          "provider": "Local (rule engine)",
           "strategy": "deterministic",
           "prompt_tokens": 0,
           "completion_tokens": 0,
@@ -187,16 +188,16 @@
         "error": ""
       },
       {
-        "id": 142,
+        "id": 287,
         "index": 2,
         "node": "request_approval",
         "status": "PAUSED",
         "summary": "Paused for the owner: 15% discount on Rahul Verma. Checkpoint saved; nothing has been sent.",
-        "created_at": "2026-11-18T12:29:34.564237+00:00",
+        "created_at": "2026-11-25T16:54:48.443690+00:00",
         "tool": null,
         "model": null,
         "output": {
-          "approval_id": 5,
+          "approval_id": 9,
           "findings": [
             "Inactive 75 days with 3 previous order(s), lifetime value 6897.",
             "Preferred channel: WHATSAPP; language: en.",
@@ -208,9 +209,9 @@
       }
     ],
     "approval": {
-      "id": 5,
-      "follow_up_id": 37,
-      "customer_id": 174,
+      "id": 9,
+      "follow_up_id": 64,
+      "customer_id": 510,
       "customer_name": "Rahul Verma",
       "action_type": "DISCOUNT",
       "proposed_discount_pct": 15,
@@ -225,8 +226,8 @@
       "decided_by": "",
       "decision_reason": "",
       "decided_at": null,
-      "created_at": "2026-11-18T12:29:34.533096+00:00",
-      "run_id": "40cf9597-7cb4-42f8-a92b-d2c64a2de296"
+      "created_at": "2026-11-25T16:54:48.402881+00:00",
+      "run_id": "8ff8da3c-d526-47b2-ab04-92acab6aafcf"
     },
     "tokens": 0,
     "cost_usd": "0E-8"
@@ -235,9 +236,9 @@
     "count": 1,
     "results": [
       {
-        "id": 5,
-        "follow_up_id": 37,
-        "customer_id": 174,
+        "id": 9,
+        "follow_up_id": 64,
+        "customer_id": 510,
         "customer_name": "Rahul Verma",
         "action_type": "DISCOUNT",
         "proposed_discount_pct": 15,
@@ -252,15 +253,15 @@
         "decided_by": "",
         "decision_reason": "",
         "decided_at": null,
-        "created_at": "2026-11-18T12:29:34.533096+00:00",
-        "run_id": "40cf9597-7cb4-42f8-a92b-d2c64a2de296"
+        "created_at": "2026-11-25T16:54:48.402881+00:00",
+        "run_id": "8ff8da3c-d526-47b2-ab04-92acab6aafcf"
       }
     ]
   },
   "step_3_owner_decision": {
-    "run_id": "40cf9597-7cb4-42f8-a92b-d2c64a2de296",
+    "run_id": "8ff8da3c-d526-47b2-ab04-92acab6aafcf",
     "mode": "FOLLOW_UP",
-    "customer_id": 174,
+    "customer_id": 510,
     "customer_name": "Rahul Verma",
     "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
     "status": "COMPLETED",
@@ -269,9 +270,9 @@
     "outcome_summary": "Follow-up sent to Rahul Verma with a 15% discount offering Blue Denim Jacket. Awaiting the customer's response.",
     "resolved_autonomously": false,
     "resume_count": 0,
-    "created_at": "2026-11-18T12:29:34.433125+00:00",
-    "finished_at": "2026-11-18T12:29:34.839312+00:00",
-    "duration_ms": 406,
+    "created_at": "2026-11-25T16:54:48.242887+00:00",
+    "finished_at": "2026-11-25T16:54:48.832693+00:00",
+    "duration_ms": 589,
     "step_count": 8,
     "state": {
       "mode": "FOLLOW_UP",
@@ -293,7 +294,7 @@
         "Recalled 3 memory note(s) from earlier runs."
       ],
       "customer": {
-        "id": 174,
+        "id": 510,
         "name": "Rahul Verma",
         "language": "en",
         "city": "Pune",
@@ -309,33 +310,33 @@
       "memory": [
         {
           "scope": "BUSINESS",
-          "key": "offer_policy",
-          "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-          "at": "2026-11-18T12:29:34.418921+00:00"
+          "key": "channel_note",
+          "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
+          "at": "2026-11-25T16:54:48.229995+00:00"
         },
         {
           "scope": "BUSINESS",
-          "key": "channel_note",
-          "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-          "at": "2026-11-18T12:29:34.418921+00:00"
+          "key": "offer_policy",
+          "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+          "at": "2026-11-25T16:54:48.228997+00:00"
         },
         {
           "scope": "BUSINESS",
           "key": "tone_guide",
           "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-          "at": "2026-11-18T12:29:34.417926+00:00"
+          "at": "2026-11-25T16:54:48.228000+00:00"
         }
       ],
       "message": "Hi Rahul, hope you are doing well. Your last order (Blue Denim Jacket) earned you 15% off on your next one. Would you like to reorder?"
     },
     "steps": [
       {
-        "id": 140,
+        "id": 285,
         "index": 0,
         "node": "load_context",
         "status": "OK",
         "summary": "Eligible: Inactive for 75 days with consent on record.",
-        "created_at": "2026-11-18T12:29:34.460475+00:00",
+        "created_at": "2026-11-25T16:54:48.276662+00:00",
         "tool": {
           "name": "retrieve_customer_history",
           "status": "SUCCESS",
@@ -344,7 +345,7 @@
           "error": "",
           "result": {
             "customer": {
-              "id": 174,
+              "id": 510,
               "name": "Rahul Verma",
               "language": "en",
               "city": "Pune",
@@ -361,42 +362,42 @@
                 "category": "Apparel",
                 "quantity": 1,
                 "amount": "2499.00",
-                "purchased_at": "2026-09-04T12:29:34.401975+00:00"
+                "purchased_at": "2026-09-11T16:54:48.053163+00:00"
               },
               {
                 "product_name": "Blue Denim Jacket",
                 "category": "Apparel",
                 "quantity": 1,
                 "amount": "2499.00",
-                "purchased_at": "2026-07-01T12:29:34.401975+00:00"
+                "purchased_at": "2026-07-08T16:54:48.053163+00:00"
               },
               {
                 "product_name": "White Sneakers",
                 "category": "Footwear",
                 "quantity": 1,
                 "amount": "1899.00",
-                "purchased_at": "2026-04-22T12:29:34.401975+00:00"
+                "purchased_at": "2026-04-29T16:54:48.053163+00:00"
               }
             ],
             "conversation": [],
             "memory": [
               {
                 "scope": "BUSINESS",
-                "key": "offer_policy",
-                "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-                "at": "2026-11-18T12:29:34.418921+00:00"
+                "key": "channel_note",
+                "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
+                "at": "2026-11-25T16:54:48.229995+00:00"
               },
               {
                 "scope": "BUSINESS",
-                "key": "channel_note",
-                "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-                "at": "2026-11-18T12:29:34.418921+00:00"
+                "key": "offer_policy",
+                "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+                "at": "2026-11-25T16:54:48.228997+00:00"
               },
               {
                 "scope": "BUSINESS",
                 "key": "tone_guide",
                 "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-                "at": "2026-11-18T12:29:34.417926+00:00"
+                "at": "2026-11-25T16:54:48.228000+00:00"
               }
             ],
             "eligibility": {
@@ -417,15 +418,16 @@
         "error": ""
       },
       {
-        "id": 141,
+        "id": 286,
         "index": 1,
         "node": "decide",
         "status": "OK",
         "summary": "Proposed a 15% incentive. A 15% discount exceeds the autonomous limit of 0%, so the owner must approve it.",
-        "created_at": "2026-11-18T12:29:34.502705+00:00",
+        "created_at": "2026-11-25T16:54:48.343990+00:00",
         "tool": null,
         "model": {
           "used": "rule-engine-v1",
+          "provider": "Local (rule engine)",
           "strategy": "deterministic",
           "prompt_tokens": 0,
           "completion_tokens": 0,
@@ -448,16 +450,16 @@
         "error": ""
       },
       {
-        "id": 142,
+        "id": 287,
         "index": 2,
         "node": "request_approval",
         "status": "OK",
         "summary": "Owner approved: Repeat buyer, worth the margin.",
-        "created_at": "2026-11-18T12:29:34.564237+00:00",
+        "created_at": "2026-11-25T16:54:48.443690+00:00",
         "tool": null,
         "model": null,
         "output": {
-          "approval_id": 5,
+          "approval_id": 9,
           "findings": [
             "Inactive 75 days with 3 previous order(s), lifetime value 6897.",
             "Preferred channel: WHATSAPP; language: en.",
@@ -471,15 +473,16 @@
         "error": ""
       },
       {
-        "id": 143,
+        "id": 288,
         "index": 3,
         "node": "draft_message",
         "status": "OK",
         "summary": "Drafted a 134-character message.",
-        "created_at": "2026-11-18T12:29:34.660141+00:00",
+        "created_at": "2026-11-25T16:54:48.570199+00:00",
         "tool": null,
         "model": {
           "used": "rule-engine-v1",
+          "provider": "Local (rule engine)",
           "strategy": "deterministic",
           "prompt_tokens": 0,
           "completion_tokens": 0,
@@ -493,12 +496,12 @@
         "error": ""
       },
       {
-        "id": 144,
+        "id": 289,
         "index": 4,
         "node": "send_followup",
         "status": "OK",
-        "summary": "Sent via WHATSAPP (message sim-a551dbf86364).",
-        "created_at": "2026-11-18T12:29:34.721508+00:00",
+        "summary": "Sent via WHATSAPP (message sim-6a09d3df6666).",
+        "created_at": "2026-11-25T16:54:48.650547+00:00",
         "tool": {
           "name": "send_followup",
           "status": "SUCCESS",
@@ -507,7 +510,7 @@
           "error": "",
           "result": {
             "provider": "simulated",
-            "message_id": "sim-a551dbf86364",
+            "message_id": "sim-6a09d3df6666",
             "to": "+919810010003",
             "channel": "WHATSAPP",
             "status": "DELIVERED"
@@ -518,12 +521,12 @@
         "error": ""
       },
       {
-        "id": 145,
+        "id": 290,
         "index": 5,
         "node": "create_reorder",
         "status": "OK",
-        "summary": "Prepared reorder request ro-174-1795004974.",
-        "created_at": "2026-11-18T12:29:34.773212+00:00",
+        "summary": "Prepared reorder request ro-510-1795625688.",
+        "created_at": "2026-11-25T16:54:48.731283+00:00",
         "tool": {
           "name": "create_reorder_request",
           "status": "SUCCESS",
@@ -531,7 +534,7 @@
           "authorized": true,
           "error": "",
           "result": {
-            "reorder_request_id": "ro-174-1795004974",
+            "reorder_request_id": "ro-510-1795625688",
             "product_name": "Blue Denim Jacket",
             "discount_pct": 15,
             "channel": "WHATSAPP",
@@ -543,12 +546,12 @@
         "error": ""
       },
       {
-        "id": 146,
+        "id": 291,
         "index": 6,
         "node": "verify_outcome",
         "status": "OK",
         "summary": "All checks passed: the message was recorded and the reorder is prepared.",
-        "created_at": "2026-11-18T12:29:34.807420+00:00",
+        "created_at": "2026-11-25T16:54:48.783719+00:00",
         "tool": null,
         "model": null,
         "output": {
@@ -562,12 +565,12 @@
         "error": ""
       },
       {
-        "id": 147,
+        "id": 292,
         "index": 7,
         "node": "finalize",
         "status": "OK",
         "summary": "COMPLETED: Follow-up sent to Rahul Verma with a 15% discount offering Blue Denim Jacket. Awaiting the customer's response.",
-        "created_at": "2026-11-18T12:29:34.857164+00:00",
+        "created_at": "2026-11-25T16:54:48.860216+00:00",
         "tool": null,
         "model": null,
         "output": {
@@ -580,9 +583,9 @@
       }
     ],
     "approval": {
-      "id": 5,
-      "follow_up_id": 37,
-      "customer_id": 174,
+      "id": 9,
+      "follow_up_id": 64,
+      "customer_id": 510,
       "customer_name": "Rahul Verma",
       "action_type": "DISCOUNT",
       "proposed_discount_pct": 15,
@@ -596,9 +599,9 @@
       ],
       "decided_by": "Ananya",
       "decision_reason": "Repeat buyer, worth the margin.",
-      "decided_at": "2026-11-18T12:29:34.620588+00:00",
-      "created_at": "2026-11-18T12:29:34.533096+00:00",
-      "run_id": "40cf9597-7cb4-42f8-a92b-d2c64a2de296"
+      "decided_at": "2026-11-25T16:54:48.519863+00:00",
+      "created_at": "2026-11-25T16:54:48.402881+00:00",
+      "run_id": "8ff8da3c-d526-47b2-ab04-92acab6aafcf"
     },
     "tokens": 0,
     "cost_usd": "0E-8"
@@ -614,9 +617,9 @@
     "discount_offered": 15
   },
   "final_trace": {
-    "run_id": "40cf9597-7cb4-42f8-a92b-d2c64a2de296",
+    "run_id": "8ff8da3c-d526-47b2-ab04-92acab6aafcf",
     "mode": "FOLLOW_UP",
-    "customer_id": 174,
+    "customer_id": 510,
     "customer_name": "Rahul Verma",
     "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
     "status": "COMPLETED",
@@ -625,9 +628,9 @@
     "outcome_summary": "Follow-up sent to Rahul Verma with a 15% discount offering Blue Denim Jacket. Awaiting the customer's response.",
     "resolved_autonomously": false,
     "resume_count": 0,
-    "created_at": "2026-11-18T12:29:34.433125+00:00",
-    "finished_at": "2026-11-18T12:29:34.839312+00:00",
-    "duration_ms": 406,
+    "created_at": "2026-11-25T16:54:48.242887+00:00",
+    "finished_at": "2026-11-25T16:54:48.832693+00:00",
+    "duration_ms": 589,
     "step_count": 8,
     "state": {
       "mode": "FOLLOW_UP",
@@ -649,7 +652,7 @@
         "Recalled 3 memory note(s) from earlier runs."
       ],
       "customer": {
-        "id": 174,
+        "id": 510,
         "name": "Rahul Verma",
         "language": "en",
         "city": "Pune",
@@ -665,33 +668,33 @@
       "memory": [
         {
           "scope": "BUSINESS",
-          "key": "offer_policy",
-          "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-          "at": "2026-11-18T12:29:34.418921+00:00"
+          "key": "channel_note",
+          "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
+          "at": "2026-11-25T16:54:48.229995+00:00"
         },
         {
           "scope": "BUSINESS",
-          "key": "channel_note",
-          "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-          "at": "2026-11-18T12:29:34.418921+00:00"
+          "key": "offer_policy",
+          "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+          "at": "2026-11-25T16:54:48.228997+00:00"
         },
         {
           "scope": "BUSINESS",
           "key": "tone_guide",
           "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-          "at": "2026-11-18T12:29:34.417926+00:00"
+          "at": "2026-11-25T16:54:48.228000+00:00"
         }
       ],
       "message": "Hi Rahul, hope you are doing well. Your last order (Blue Denim Jacket) earned you 15% off on your next one. Would you like to reorder?"
     },
     "steps": [
       {
-        "id": 140,
+        "id": 285,
         "index": 0,
         "node": "load_context",
         "status": "OK",
         "summary": "Eligible: Inactive for 75 days with consent on record.",
-        "created_at": "2026-11-18T12:29:34.460475+00:00",
+        "created_at": "2026-11-25T16:54:48.276662+00:00",
         "tool": {
           "name": "retrieve_customer_history",
           "status": "SUCCESS",
@@ -700,7 +703,7 @@
           "error": "",
           "result": {
             "customer": {
-              "id": 174,
+              "id": 510,
               "name": "Rahul Verma",
               "language": "en",
               "city": "Pune",
@@ -717,42 +720,42 @@
                 "category": "Apparel",
                 "quantity": 1,
                 "amount": "2499.00",
-                "purchased_at": "2026-09-04T12:29:34.401975+00:00"
+                "purchased_at": "2026-09-11T16:54:48.053163+00:00"
               },
               {
                 "product_name": "Blue Denim Jacket",
                 "category": "Apparel",
                 "quantity": 1,
                 "amount": "2499.00",
-                "purchased_at": "2026-07-01T12:29:34.401975+00:00"
+                "purchased_at": "2026-07-08T16:54:48.053163+00:00"
               },
               {
                 "product_name": "White Sneakers",
                 "category": "Footwear",
                 "quantity": 1,
                 "amount": "1899.00",
-                "purchased_at": "2026-04-22T12:29:34.401975+00:00"
+                "purchased_at": "2026-04-29T16:54:48.053163+00:00"
               }
             ],
             "conversation": [],
             "memory": [
               {
                 "scope": "BUSINESS",
-                "key": "offer_policy",
-                "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
-                "at": "2026-11-18T12:29:34.418921+00:00"
+                "key": "channel_note",
+                "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
+                "at": "2026-11-25T16:54:48.229995+00:00"
               },
               {
                 "scope": "BUSINESS",
-                "key": "channel_note",
-                "value": "WhatsApp converts better than SMS for Apparel; SMS is used for older profiles.",
-                "at": "2026-11-18T12:29:34.418921+00:00"
+                "key": "offer_policy",
+                "value": "Discounts above the autonomous limit are granted only for repeat buyers.",
+                "at": "2026-11-25T16:54:48.228997+00:00"
               },
               {
                 "scope": "BUSINESS",
                 "key": "tone_guide",
                 "value": "Keep win-back messages warm and specific; never use urgency pressure.",
-                "at": "2026-11-18T12:29:34.417926+00:00"
+                "at": "2026-11-25T16:54:48.228000+00:00"
               }
             ],
             "eligibility": {
@@ -773,15 +776,16 @@
         "error": ""
       },
       {
-        "id": 141,
+        "id": 286,
         "index": 1,
         "node": "decide",
         "status": "OK",
         "summary": "Proposed a 15% incentive. A 15% discount exceeds the autonomous limit of 0%, so the owner must approve it.",
-        "created_at": "2026-11-18T12:29:34.502705+00:00",
+        "created_at": "2026-11-25T16:54:48.343990+00:00",
         "tool": null,
         "model": {
           "used": "rule-engine-v1",
+          "provider": "Local (rule engine)",
           "strategy": "deterministic",
           "prompt_tokens": 0,
           "completion_tokens": 0,
@@ -804,16 +808,16 @@
         "error": ""
       },
       {
-        "id": 142,
+        "id": 287,
         "index": 2,
         "node": "request_approval",
         "status": "OK",
         "summary": "Owner approved: Repeat buyer, worth the margin.",
-        "created_at": "2026-11-18T12:29:34.564237+00:00",
+        "created_at": "2026-11-25T16:54:48.443690+00:00",
         "tool": null,
         "model": null,
         "output": {
-          "approval_id": 5,
+          "approval_id": 9,
           "findings": [
             "Inactive 75 days with 3 previous order(s), lifetime value 6897.",
             "Preferred channel: WHATSAPP; language: en.",
@@ -827,15 +831,16 @@
         "error": ""
       },
       {
-        "id": 143,
+        "id": 288,
         "index": 3,
         "node": "draft_message",
         "status": "OK",
         "summary": "Drafted a 134-character message.",
-        "created_at": "2026-11-18T12:29:34.660141+00:00",
+        "created_at": "2026-11-25T16:54:48.570199+00:00",
         "tool": null,
         "model": {
           "used": "rule-engine-v1",
+          "provider": "Local (rule engine)",
           "strategy": "deterministic",
           "prompt_tokens": 0,
           "completion_tokens": 0,
@@ -849,12 +854,12 @@
         "error": ""
       },
       {
-        "id": 144,
+        "id": 289,
         "index": 4,
         "node": "send_followup",
         "status": "OK",
-        "summary": "Sent via WHATSAPP (message sim-a551dbf86364).",
-        "created_at": "2026-11-18T12:29:34.721508+00:00",
+        "summary": "Sent via WHATSAPP (message sim-6a09d3df6666).",
+        "created_at": "2026-11-25T16:54:48.650547+00:00",
         "tool": {
           "name": "send_followup",
           "status": "SUCCESS",
@@ -863,7 +868,7 @@
           "error": "",
           "result": {
             "provider": "simulated",
-            "message_id": "sim-a551dbf86364",
+            "message_id": "sim-6a09d3df6666",
             "to": "+919810010003",
             "channel": "WHATSAPP",
             "status": "DELIVERED"
@@ -874,12 +879,12 @@
         "error": ""
       },
       {
-        "id": 145,
+        "id": 290,
         "index": 5,
         "node": "create_reorder",
         "status": "OK",
-        "summary": "Prepared reorder request ro-174-1795004974.",
-        "created_at": "2026-11-18T12:29:34.773212+00:00",
+        "summary": "Prepared reorder request ro-510-1795625688.",
+        "created_at": "2026-11-25T16:54:48.731283+00:00",
         "tool": {
           "name": "create_reorder_request",
           "status": "SUCCESS",
@@ -887,7 +892,7 @@
           "authorized": true,
           "error": "",
           "result": {
-            "reorder_request_id": "ro-174-1795004974",
+            "reorder_request_id": "ro-510-1795625688",
             "product_name": "Blue Denim Jacket",
             "discount_pct": 15,
             "channel": "WHATSAPP",
@@ -899,12 +904,12 @@
         "error": ""
       },
       {
-        "id": 146,
+        "id": 291,
         "index": 6,
         "node": "verify_outcome",
         "status": "OK",
         "summary": "All checks passed: the message was recorded and the reorder is prepared.",
-        "created_at": "2026-11-18T12:29:34.807420+00:00",
+        "created_at": "2026-11-25T16:54:48.783719+00:00",
         "tool": null,
         "model": null,
         "output": {
@@ -918,12 +923,12 @@
         "error": ""
       },
       {
-        "id": 147,
+        "id": 292,
         "index": 7,
         "node": "finalize",
         "status": "OK",
         "summary": "COMPLETED: Follow-up sent to Rahul Verma with a 15% discount offering Blue Denim Jacket. Awaiting the customer's response.",
-        "created_at": "2026-11-18T12:29:34.857164+00:00",
+        "created_at": "2026-11-25T16:54:48.860216+00:00",
         "tool": null,
         "model": null,
         "output": {
@@ -936,9 +941,9 @@
       }
     ],
     "approval": {
-      "id": 5,
-      "follow_up_id": 37,
-      "customer_id": 174,
+      "id": 9,
+      "follow_up_id": 64,
+      "customer_id": 510,
       "customer_name": "Rahul Verma",
       "action_type": "DISCOUNT",
       "proposed_discount_pct": 15,
@@ -952,9 +957,9 @@
       ],
       "decided_by": "Ananya",
       "decision_reason": "Repeat buyer, worth the margin.",
-      "decided_at": "2026-11-18T12:29:34.620588+00:00",
-      "created_at": "2026-11-18T12:29:34.533096+00:00",
-      "run_id": "40cf9597-7cb4-42f8-a92b-d2c64a2de296"
+      "decided_at": "2026-11-25T16:54:48.519863+00:00",
+      "created_at": "2026-11-25T16:54:48.402881+00:00",
+      "run_id": "8ff8da3c-d526-47b2-ab04-92acab6aafcf"
     },
     "tokens": 0,
     "cost_usd": "0E-8"

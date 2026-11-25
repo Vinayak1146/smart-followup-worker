@@ -66,8 +66,6 @@ export const api = {
   startFollowUp: (id) => request(`/customers/${id}/follow-up/`, { method: 'POST', body: {} }),
   sendReply: (id, reply) =>
     request(`/customers/${id}/reply/`, { method: 'POST', body: { reply } }),
-  recordPurchase: (id, payload) =>
-    request(`/customers/${id}/purchase/`, { method: 'POST', body: payload }),
 
   runs: (params = {}) => {
     const query = new URLSearchParams(

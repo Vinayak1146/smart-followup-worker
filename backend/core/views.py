@@ -9,12 +9,8 @@ The worker itself is the subject of this prototype, so the API is unauthenticate
 and there is no user model. ``X-Owner-Name`` is used purely as a label on a human
 decision so the trace can say *who* approved a discount.
 """
-from datetime import timedelta
-
 from django.conf import settings
-from django.db import transaction
 from django.shortcuts import get_object_or_404
-from django.utils import timezone
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -26,8 +22,6 @@ from .agent import reasoner, tools, workflows
 from .models import (
     Approval,
     Customer,
-    FollowUp,
-    Purchase,
     SimulationControl,
     WorkerRun,
     business_goal,
@@ -157,63 +151,6 @@ def customer_reply(request, pk):
         return Response({'error': 'A reply is required.'}, status=status.HTTP_400_BAD_REQUEST)
     run = workflows.start_response_run(customer, reply, actor=_actor(request))
     return Response(ser.run_detail(run), status=status.HTTP_201_CREATED)
-
-
-@api_view(['POST'])
-def record_purchase(request, pk):
-    """Record a real order, and let it — not the worker — mark a follow-up
-    converted.
-
-    This exists so the success metric can be demonstrated honestly: the worker
-    cannot award itself a conversion. Only a ``Purchase`` row can.
-    """
-    customer = get_object_or_404(Customer, pk=pk)
-    body = _body(request)
-
-    product_name = str(body.get('product_name') or '').strip()
-    if not product_name:
-        return Response({'error': 'product_name is required.'}, status=status.HTTP_400_BAD_REQUEST)
-
-    try:
-        amount = float(body.get('amount') or 0)
-        quantity = int(body.get('quantity') or 1)
-    except (TypeError, ValueError):
-        return Response({'error': 'amount and quantity must be numeric.'}, status=status.HTTP_400_BAD_REQUEST)
-
-    with transaction.atomic():
-        purchase = Purchase.objects.create(
-            customer=customer,
-            product_name=product_name,
-            category=str(body.get('category') or ''),
-            quantity=max(1, quantity),
-            amount=amount,
-            purchased_at=timezone.now(),
-        )
-        customer.recompute_last_order()
-
-        window_start = timezone.now() - timedelta(days=30)
-        converted = (
-            customer.follow_ups.filter(
-                status=FollowUp.Status.SENT, sent_at__gte=window_start
-            )
-            .order_by('-sent_at')
-            .first()
-        )
-        if converted is not None:
-            converted.status = FollowUp.Status.CONVERTED
-            converted.outcome_note = f'Converted: {product_name} ordered {timezone.now():%Y-%m-%d}.'
-            converted.save(update_fields=['status', 'outcome_note', 'updated_at'])
-            customer.status = Customer.Status.REACTIVATED
-            customer.save(update_fields=['status'])
-
-    return Response(
-        {
-            'purchase': ser.purchase_row(purchase),
-            'converted_follow_up_id': converted.id if converted is not None else None,
-            'customer': ser.customer_summary(customer),
-        },
-        status=status.HTTP_201_CREATED,
-    )
 
 
 @api_view(['GET'])

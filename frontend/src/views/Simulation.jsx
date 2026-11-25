@@ -144,7 +144,7 @@ export default function Simulation({ onChanged }) {
 
       <Card
         title="Synthetic dataset"
-        subtitle="Nine customers, each one exercising a different rule. No real data anywhere."
+        subtitle="50 synthetic customers — the curated nine plus a wider pool. No real data anywhere."
       >
         <div className="chips" style={{ marginBottom: 12 }}>
           <button type="button" className="btn" disabled={action.busy} onClick={() => seed(false)}>

@@ -92,7 +92,6 @@ function CustomerDetail({ id, onBack, onChanged, onOpenRun }) {
   const detail = useAsync(() => api.customer(id), [id])
   const action = useAction()
   const [reply, setReply] = useState('')
-  const [order, setOrder] = useState({ product_name: '', amount: '', quantity: 1 })
 
   const customer = detail.data
 
@@ -115,26 +114,6 @@ function CustomerDetail({ id, onBack, onChanged, onOpenRun }) {
     if (run) {
       onChanged(`${customer.name} replied → ${run.outcome_summary}`)
       setReply('')
-      detail.reload()
-    }
-  }
-
-  async function recordPurchase() {
-    const result = await action.run(
-      () => api.recordPurchase(id, {
-        product_name: order.product_name,
-        amount: Number(order.amount || 0),
-        quantity: Number(order.quantity || 1),
-      }),
-      'Order recorded.',
-    )
-    if (result) {
-      onChanged(
-        result.converted_follow_up_id
-          ? `Order recorded and follow-up #${result.converted_follow_up_id} marked converted by the purchase, not by the worker.`
-          : 'Order recorded.',
-      )
-      setOrder({ product_name: '', amount: '', quantity: 1 })
       detail.reload()
     }
   }
@@ -331,39 +310,6 @@ function CustomerDetail({ id, onBack, onChanged, onOpenRun }) {
             </div>
           </div>
         )}
-      </Card>
-
-      <Card
-        title="Record an order"
-        subtitle="The only path that can mark a follow-up converted — never the worker itself."
-      >
-        <div className="row">
-          <input
-            placeholder="Product"
-            value={order.product_name}
-            onChange={(event) => setOrder({ ...order, product_name: event.target.value })}
-          />
-          <input
-            placeholder="Amount"
-            style={{ width: 110 }}
-            value={order.amount}
-            onChange={(event) => setOrder({ ...order, amount: event.target.value })}
-          />
-          <input
-            placeholder="Qty"
-            style={{ width: 70 }}
-            value={order.quantity}
-            onChange={(event) => setOrder({ ...order, quantity: event.target.value })}
-          />
-          <button
-            type="button"
-            className="btn"
-            disabled={!order.product_name.trim() || action.busy}
-            onClick={recordPurchase}
-          >
-            Record order
-          </button>
-        </div>
       </Card>
 
       <Card title="Follow-ups" subtitle="Every attempt to bring this customer back.">

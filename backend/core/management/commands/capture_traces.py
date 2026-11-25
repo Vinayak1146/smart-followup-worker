@@ -84,8 +84,9 @@ class Command(BaseCommand):
         ).count()
 
     def scenario_1_success(self, client):
-        """A customer is won back with no human involved, and a real order
-        — not the worker — marks the follow-up converted."""
+        """A customer is won back with no human involved: the worker sends one
+        message, the customer replies positively, and that reply — not the
+        worker — marks the follow-up converted."""
         self.fresh()
         customer = self.customer('Priya Nair')
 
@@ -93,10 +94,9 @@ class Command(BaseCommand):
         assert run.status_code == 201, run.data
         run_id = run.data['run_id']
 
-        order = client.post(
-            f'/api/customers/{customer.id}/purchase/',
-            {'product_name': 'Muslin Cotton Kurta', 'category': 'Apparel', 'quantity': 1,
-             'amount': 1299},
+        reply = client.post(
+            f'/api/customers/{customer.id}/reply/',
+            {'reply': 'Yes please, I would like to reorder'},
             format='json',
         )
         customer.refresh_from_db()
@@ -106,15 +106,18 @@ class Command(BaseCommand):
             'scenario': 'Successful reorder, entirely autonomous',
             'expectation': (
                 'The worker finds an eligible customer, proposes no discount (so no approval '
-                'is needed), sends one message, and completes. The conversion is written by '
-                'the recorded purchase, not by the worker.'
+                'is needed), sends one message, and completes. The win-back is the customer\'s '
+                'positive reply — orders happen on the shop site, so the worker never records one.'
             ),
             'step_1_worker_run': run.data,
-            'step_2_recorded_order': order.data,
+            'step_2_customer_reply': reply.data,
             'step_3_follow_up_state': {
                 'id': follow_up.id,
                 'status': follow_up.status,
                 'sent_at': follow_up.sent_at.isoformat() if follow_up.sent_at else None,
+                'responded_at': (
+                    follow_up.responded_at.isoformat() if follow_up.responded_at else None
+                ),
                 'outcome_note': follow_up.outcome_note,
                 'message': follow_up.message,
             },
@@ -123,8 +126,8 @@ class Command(BaseCommand):
                 'resolved_autonomously': run.data['resolved_autonomously'],
                 'no_approval_recorded': run.data['approval'] is None,
                 'exactly_one_message_sent': self.outbound_count(customer) == 1,
-                'converted_after_purchase': order.data['converted_follow_up_id'] == follow_up.id,
-                'customer_status': customer.status,
+                'reply_classified_positive': reply.data['state'].get('intent') == 'POSITIVE',
+                'follow_up_converted': follow_up.status == FollowUp.Status.CONVERTED,
             },
             'final_trace': client.get(f'/api/runs/{run_id}/').data,
         })

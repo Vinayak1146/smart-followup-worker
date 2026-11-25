@@ -27,60 +27,265 @@
   "dataset": [
     {
       "customer": "Priya Nair",
-      "customer_id": 145,
+      "customer_id": 358,
       "note": "Eligible with no incentive justified \u2014 the autonomous success case."
     },
     {
       "customer": "Meera Joshi",
-      "customer_id": 146,
+      "customer_id": 359,
       "note": "Eligible \u2014 the subject of the customer-rejection scenario."
     },
     {
       "customer": "Rahul Verma",
-      "customer_id": 147,
+      "customer_id": 360,
       "note": "Repeat buyer inactive 75 days \u2014 the analysis justifies 15% off, which crosses the autonomous limit and needs the owner."
     },
     {
       "customer": "Vikram Mehta",
-      "customer_id": 148,
+      "customer_id": 361,
       "note": "Hindi speaker with a stored preference \u2014 shows memory recall and language-aware drafting under an approval."
     },
     {
       "customer": "Nisha Kulkarni",
-      "customer_id": 149,
+      "customer_id": 362,
       "note": "Declined an offer 10 days ago \u2014 the cooldown rule must refuse to re-contact."
     },
     {
       "customer": "Arjun Singh",
-      "customer_id": 150,
+      "customer_id": 363,
       "note": "Ordered 12 days ago \u2014 too recent to nudge."
     },
     {
       "customer": "Fatima Sheikh",
-      "customer_id": 151,
+      "customer_id": 364,
       "note": "Never consented to marketing \u2014 outreach is not permitted."
     },
     {
       "customer": "Deepak Rao",
-      "customer_id": 152,
+      "customer_id": 365,
       "note": "Inactive 240 days \u2014 beyond the window where one message is honest."
     },
     {
       "customer": "Sneha Iyer",
-      "customer_id": 153,
+      "customer_id": 366,
       "note": "Opted out of outreach \u2014 blocked at policy level."
+    },
+    {
+      "customer": "Aditya Menon",
+      "customer_id": 367,
+      "note": "Synthetic profile \u2014 inactive 62 day(s) at seed time."
+    },
+    {
+      "customer": "Kavya Reddy",
+      "customer_id": 368,
+      "note": "Synthetic profile \u2014 inactive 41 day(s) at seed time."
+    },
+    {
+      "customer": "Sameer Khan",
+      "customer_id": 369,
+      "note": "Synthetic profile \u2014 inactive 88 day(s) at seed time."
+    },
+    {
+      "customer": "Ananya Ghosh",
+      "customer_id": 370,
+      "note": "Synthetic profile \u2014 inactive 35 day(s) at seed time."
+    },
+    {
+      "customer": "Rohit Patil",
+      "customer_id": 371,
+      "note": "Synthetic profile \u2014 inactive 120 day(s) at seed time."
+    },
+    {
+      "customer": "Divya Nambiar",
+      "customer_id": 372,
+      "note": "Synthetic profile \u2014 inactive 150 day(s) at seed time."
+    },
+    {
+      "customer": "Imran Sheikh",
+      "customer_id": 373,
+      "note": "Synthetic profile \u2014 inactive 55 day(s) at seed time."
+    },
+    {
+      "customer": "Pooja Sharma",
+      "customer_id": 374,
+      "note": "Synthetic profile \u2014 inactive 18 day(s) at seed time."
+    },
+    {
+      "customer": "Karthik Subramanian",
+      "customer_id": 375,
+      "note": "Synthetic profile \u2014 inactive 95 day(s) at seed time."
+    },
+    {
+      "customer": "Neha Deshpande",
+      "customer_id": 376,
+      "note": "Synthetic profile \u2014 inactive 47 day(s) at seed time."
+    },
+    {
+      "customer": "Aarav Gupta",
+      "customer_id": 377,
+      "note": "Synthetic profile \u2014 inactive 210 day(s) at seed time."
+    },
+    {
+      "customer": "Shreya Banerjee",
+      "customer_id": 378,
+      "note": "Synthetic profile \u2014 inactive 66 day(s) at seed time."
+    },
+    {
+      "customer": "Manish Yadav",
+      "customer_id": 379,
+      "note": "Synthetic profile \u2014 inactive 78 day(s) at seed time."
+    },
+    {
+      "customer": "Lakshmi Pillai",
+      "customer_id": 380,
+      "note": "Synthetic profile \u2014 inactive 100 day(s) at seed time."
+    },
+    {
+      "customer": "Ravi Kumar",
+      "customer_id": 381,
+      "note": "Synthetic profile \u2014 inactive 33 day(s) at seed time."
+    },
+    {
+      "customer": "Sneha Chatterjee",
+      "customer_id": 382,
+      "note": "Synthetic profile \u2014 inactive 140 day(s) at seed time."
+    },
+    {
+      "customer": "Vikas Jain",
+      "customer_id": 383,
+      "note": "Synthetic profile \u2014 inactive 52 day(s) at seed time."
+    },
+    {
+      "customer": "Meghana Rao",
+      "customer_id": 384,
+      "note": "Synthetic profile \u2014 inactive 71 day(s) at seed time."
+    },
+    {
+      "customer": "Faisal Ahmed",
+      "customer_id": 385,
+      "note": "Synthetic profile \u2014 inactive 25 day(s) at seed time."
+    },
+    {
+      "customer": "Tanvi Joshi",
+      "customer_id": 386,
+      "note": "Synthetic profile \u2014 inactive 108 day(s) at seed time."
+    },
+    {
+      "customer": "Suresh Nair",
+      "customer_id": 387,
+      "note": "Synthetic profile \u2014 inactive 165 day(s) at seed time."
+    },
+    {
+      "customer": "Isha Malhotra",
+      "customer_id": 388,
+      "note": "Synthetic profile \u2014 inactive 58 day(s) at seed time."
+    },
+    {
+      "customer": "Ganesh Iyer",
+      "customer_id": 389,
+      "note": "Synthetic profile \u2014 inactive 44 day(s) at seed time."
+    },
+    {
+      "customer": "Ritu Agarwal",
+      "customer_id": 390,
+      "note": "Synthetic profile \u2014 inactive 130 day(s) at seed time."
+    },
+    {
+      "customer": "Nikhil Menon",
+      "customer_id": 391,
+      "note": "Synthetic profile \u2014 inactive 92 day(s) at seed time."
+    },
+    {
+      "customer": "Priyanka Saxena",
+      "customer_id": 392,
+      "note": "Synthetic profile \u2014 inactive 60 day(s) at seed time."
+    },
+    {
+      "customer": "Arvind Krishnan",
+      "customer_id": 393,
+      "note": "Synthetic profile \u2014 inactive 175 day(s) at seed time."
+    },
+    {
+      "customer": "Zoya Siddiqui",
+      "customer_id": 394,
+      "note": "Synthetic profile \u2014 inactive 38 day(s) at seed time."
+    },
+    {
+      "customer": "Harish Patel",
+      "customer_id": 395,
+      "note": "Synthetic profile \u2014 inactive 85 day(s) at seed time."
+    },
+    {
+      "customer": "Deepa Menon",
+      "customer_id": 396,
+      "note": "Synthetic profile \u2014 inactive 12 day(s) at seed time."
+    },
+    {
+      "customer": "Sagar Kulkarni",
+      "customer_id": 397,
+      "note": "Synthetic profile \u2014 inactive 145 day(s) at seed time."
+    },
+    {
+      "customer": "Nandini Bose",
+      "customer_id": 398,
+      "note": "Synthetic profile \u2014 inactive 49 day(s) at seed time."
+    },
+    {
+      "customer": "Rajat Verma",
+      "customer_id": 399,
+      "note": "Synthetic profile \u2014 inactive 240 day(s) at seed time."
+    },
+    {
+      "customer": "Aishwarya Rajan",
+      "customer_id": 400,
+      "note": "Synthetic profile \u2014 inactive 55 day(s) at seed time."
+    },
+    {
+      "customer": "Kabir Malhotra",
+      "customer_id": 401,
+      "note": "Synthetic profile \u2014 inactive 115 day(s) at seed time."
+    },
+    {
+      "customer": "Sarita Devi",
+      "customer_id": 402,
+      "note": "Synthetic profile \u2014 inactive 68 day(s) at seed time."
+    },
+    {
+      "customer": "Vishal Shetty",
+      "customer_id": 403,
+      "note": "Synthetic profile \u2014 inactive 82 day(s) at seed time."
+    },
+    {
+      "customer": "Rhea Dsouza",
+      "customer_id": 404,
+      "note": "Synthetic profile \u2014 inactive 40 day(s) at seed time."
+    },
+    {
+      "customer": "Mohammed Arif",
+      "customer_id": 405,
+      "note": "Synthetic profile \u2014 inactive 155 day(s) at seed time."
+    },
+    {
+      "customer": "Pallavi Naik",
+      "customer_id": 406,
+      "note": "Synthetic profile \u2014 inactive 29 day(s) at seed time."
+    },
+    {
+      "customer": "Devendra Singh",
+      "customer_id": 407,
+      "note": "Synthetic profile \u2014 inactive 70 day(s) at seed time."
     }
   ],
   "dashboard": {
     "goal": "Win back customers who have not ordered recently by sending one relevant, consented follow-up that leads to a repeat purchase.",
     "customers": {
-      "total": 9,
-      "opted_out": 1,
-      "with_consent": 8
+      "total": 50,
+      "opted_out": 2,
+      "with_consent": 47
     },
     "purchases": {
-      "count": 13,
-      "revenue": "20615"
+      "count": 54,
+      "revenue": "74235"
     },
     "follow_ups": {
       "total": 1,

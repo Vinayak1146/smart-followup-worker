@@ -19,9 +19,10 @@ Notes on two decisions that are easy to get wrong:
 * **Everything before ``interrupt()`` must be idempotent.** LangGraph re-executes
   the interrupting node from the top when the run resumes, so the approval row is
   *reused* rather than created a second time.
-* **``CONVERTED`` is never set here.** A follow-up is sent, not converted. Only a
-  real ``Purchase`` arriving afterwards can mark it converted, which keeps the
-  success metric honest instead of optimistically self-reported.
+* **``CONVERTED`` is set only by a positive customer reply.** The win-back is won
+  when the customer comes back to us; the actual order happens on the shop site,
+  so the worker never records a purchase and never claims one. The metric counts
+  the reply, not an order it cannot see.
 """
 import logging
 import time
@@ -538,8 +539,9 @@ def node_verify_outcome(state):
 def node_handle_response(state):
     """Interpret a customer reply and update what the worker knows.
 
-    A rejection is a *successful* run here: the worker did the right thing by
-    recording it, backing off and remembering not to repeat the offer.
+    Both terminal outcomes are *successful* runs: a positive reply is the win
+    (the customer re-engages; the order itself happens on the shop site), and a
+    rejection is handled correctly by being recorded, backed off, and remembered.
     """
     run = WorkerRun.objects.get(run_id=state['run_id'])
     customer = Customer.objects.get(pk=state['customer_id'])
@@ -574,7 +576,11 @@ def node_handle_response(state):
         state['outcome_summary'] = f'Customer declined: {summary[:200]}'
     elif intent == 'POSITIVE':
         if follow_up is not None:
-            follow_up.status = FollowUp.Status.SENT
+            follow_up.status = FollowUp.Status.CONVERTED
+            follow_up.outcome_note = (
+                f'Customer replied positively on {timezone.now():%Y-%m-%d}; '
+                f'the order itself happens on the shop site.'
+            )
         rules.remember(
             customer, 'positive_signal',
             f'Responded positively on {timezone.now():%Y-%m-%d}: "{summary[:120]}".',
